@@ -8,7 +8,9 @@ import { cn } from '@/lib/utils'
 import { getAmount } from '@/services/requests/get-amount'
 import { useAppDispatch } from '@/store'
 import { addProduct, removeProduct, useCurrentShoes } from '@/store/slices/cart'
+import { monetaryValueFormatter } from '@/utils/monetary'
 
+// import { Tooltip } from './tooltip'
 import { Button } from './ui/button'
 import {
   ContextMenu,
@@ -47,6 +49,8 @@ export function ShoesCard({
   function handleRemoveProductOnCart() {
     dispatch(removeProduct({ id: shoes.id }))
   }
+
+  const shoesPriceFormatted = monetaryValueFormatter(shoes.price)
 
   async function onGetAmount() {
     try {
@@ -105,7 +109,9 @@ export function ShoesCard({
         <section className="space-y-1">
           <h3 className="font-medium leading-none">{shoes.title}</h3>
           <div className="flex items-center justify-between">
-            <p className="text-sm text-muted-foreground">{shoes.price}</p>
+            <p className="text-sm text-muted-foreground">
+              {shoesPriceFormatted}
+            </p>
 
             {!!shoesOnCart && !isGetAmountLoading && (
               <div className="text-xs font-bold text-muted-foreground">
@@ -129,6 +135,7 @@ export function ShoesCard({
             Adicionar ao Carrinho
           </Button>
 
+          {/* <Tooltip asChild content="Abrir o carrinho"> */}
           {!!shoesOnCart && !isGetAmountLoading && (
             <Button
               size="2xs"
@@ -140,6 +147,7 @@ export function ShoesCard({
               <CircleMinus className="h-4 w-4" />
             </Button>
           )}
+          {/* </Tooltip> */}
         </div>
       </div>
     </div>

@@ -1,12 +1,10 @@
-import { ShoppingCart } from 'lucide-react'
-
 import LogoSVG from '@/assets/logo.svg'
 import DarkLogoSVG from '@/assets/logo-dark.svg'
 import { useTheme } from '@/hooks/useTheme'
 import { THEME } from '@/utils/theme'
 
+import CartMenu from './cart-menu'
 import { ThemeToggle } from './theme/theme-toggle'
-import { Button } from './ui/button'
 
 export function Header() {
   const { theme } = useTheme()
@@ -19,9 +17,8 @@ export function Header() {
 
       <div className="flex items-center gap-2">
         <ThemeToggle />
-        <Button size="sm">
-          <ShoppingCart className="h-5 w-5" />
-        </Button>
+
+        <CartMenu />
       </div>
     </header>
   )

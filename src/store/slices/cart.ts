@@ -69,14 +69,18 @@ const cartSlice = createSlice({
         productExists.amount = action.payload.amount
       }
     },
+    clearCart: () => {
+      return []
+    },
   },
 })
 
 const cart = cartSlice.reducer
-const { addProduct, removeProduct } = cartSlice.actions
+const { addProduct, removeProduct, clearCart } = cartSlice.actions
 
-export { addProduct, cart, removeProduct } // ajuste o caminho conforme sua estrutura
+export { addProduct, cart, clearCart, removeProduct } // ajuste o caminho conforme sua estrutura
 
+// ** Funções de utilidade **
 // Cart Selector to get the current shoes on cart
 const makeSelectShoesOnCart = (id: number) =>
   createSelector(
@@ -105,4 +109,13 @@ export const useCurrentShoes = ({ id }: UseCurrentShoesProps) => {
   const shoesOnCart = useAppSelector(selectShoesOnCart)
 
   return { shoesOnCart }
+}
+
+// calculate the total price of the items in the cart
+export const useCalculateItemsCartTotalPrince = (state: IProduct[]) => {
+  const total = state.reduce((acc, product) => {
+    return acc + product.price * product.amount
+  }, 0)
+
+  return total
 }

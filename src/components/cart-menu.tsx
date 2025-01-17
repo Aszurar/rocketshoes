@@ -105,6 +105,7 @@ export default function CartMenu() {
           <Button
             type="button"
             className="w-full"
+            disabled={isEmptyCart}
             onClick={handleFinishPurchase}
           >
             Finalizar compra
@@ -113,6 +114,7 @@ export default function CartMenu() {
             type="button"
             variant="ghost"
             className="w-full"
+            disabled={isEmptyCart}
             onClick={handleClearCart}
           >
             Limpar comprando

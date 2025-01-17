@@ -2,9 +2,13 @@ import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { useMemo } from 'react'
 
 import { IProduct, IShoes } from '@/data/shoes'
+import { clearCartFromStorage } from '@/storage/cart/clear-cart-storage'
+import { getCartFromStorage } from '@/storage/cart/get-cart-storage'
+import { saveCartToStorage } from '@/storage/cart/save-cart-storage'
 import { RootState, useAppSelector } from '@/store'
 
-const initialState = [] as IProduct[]
+const cartFormStorage = getCartFromStorage()
+const initialState = cartFormStorage || []
 
 type AddProductProps = IShoes & {
   stockAmount: number
@@ -38,8 +42,14 @@ const cartSlice = createSlice({
           return
         }
 
-        state.push({ ...action.payload, amount: 1 })
+        const newProduct = {
+          ...action.payload,
+          amount: 1,
+        }
+
+        state.push(newProduct)
       }
+      saveCartToStorage(state)
     },
     removeProduct: (state, action: PayloadAction<RemoveProductProps>) => {
       const productExists = state.find(
@@ -56,6 +66,7 @@ const cartSlice = createSlice({
           state.splice(index, 1)
         }
       }
+      saveCartToStorage(state)
     },
     updateProductAmount: (
       state,
@@ -68,8 +79,10 @@ const cartSlice = createSlice({
       if (productExists) {
         productExists.amount = action.payload.amount
       }
+      saveCartToStorage(state)
     },
     clearCart: () => {
+      clearCartFromStorage()
       return []
     },
   },
@@ -111,7 +124,11 @@ export const useCurrentShoes = ({ id }: UseCurrentShoesProps) => {
   return { shoesOnCart }
 }
 
-// calculate the total price of the items in the cart
+/**
+ *  Hook para calcular o total de itens no carrinho.
+ * @param state - Estado do carrinho
+ * @returns {number}  Valor total dos produtos no carrinho
+ */
 export const useCalculateItemsCartTotalPrince = (state: IProduct[]) => {
   const total = state.reduce((acc, product) => {
     return acc + product.price * product.amount

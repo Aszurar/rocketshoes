@@ -8,7 +8,8 @@ export function NotificationBadge({
   children,
   content,
 }: Readonly<NotificationBadgeProps>) {
-  console.log('NotificationBadge render', { content })
+  if (!content) return <>{children}</>
+
   return (
     <div className="relative">
       <span className="absolute -right-2 -top-2 flex h-5 w-5 animate-ping rounded-full bg-primary opacity-75" />

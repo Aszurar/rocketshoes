@@ -3,12 +3,10 @@ import { ShoppingCart } from 'lucide-react'
 import { toast } from 'react-toastify'
 
 import { useAppDispatch, useAppSelector } from '@/store'
-import {
-  clearCart,
-  useCalculateItemsCartTotalPrince,
-} from '@/store/slices/cart'
+import { clearCart, useCalculateItemsCartTotal } from '@/store/slices/cart'
 import { DELIVERY_COST, monetaryValueFormatter } from '@/utils/monetary'
 
+import { NotificationBadge } from './notification-badge'
 import { ShoesCardCartMemoized } from './shoes-card-cart'
 import { Tooltip } from './tooltip'
 import { Button } from './ui/button'
@@ -26,7 +24,7 @@ export default function CartMenu() {
   const [parent] = useAutoAnimate()
   const dispatch = useAppDispatch()
   const cart = useAppSelector((state) => state.cart)
-  const totalPrice = useCalculateItemsCartTotalPrince(cart)
+  const { totalItems, totalPrice } = useCalculateItemsCartTotal(cart)
   const totalPriceWithDeliveryCost = totalPrice + DELIVERY_COST
 
   const totalPriceFormatted = monetaryValueFormatter(totalPrice)
@@ -47,13 +45,15 @@ export default function CartMenu() {
 
   return (
     <Sheet>
-      <Tooltip content="Abrir o carrinho">
-        <SheetTrigger asChild>
-          <Button size="sm">
-            <ShoppingCart className="h-5 w-5" />
-          </Button>
-        </SheetTrigger>
-      </Tooltip>
+      <NotificationBadge content={totalItems}>
+        <Tooltip content="Abrir o carrinho">
+          <SheetTrigger asChild>
+            <Button size="sm">
+              <ShoppingCart className="h-5 w-5" />
+            </Button>
+          </SheetTrigger>
+        </Tooltip>
+      </NotificationBadge>
 
       <SheetContent>
         <SheetHeader>

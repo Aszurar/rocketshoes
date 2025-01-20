@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { EmptyList } from '@/components/empty-list'
 import { ShoesCardMemoized } from '@/components/shoes-card'
 import { ShoesCardListSkeleton } from '@/components/shoes-card-list-skeleton'
 import { IShoes } from '@/data/shoes'
@@ -9,6 +10,8 @@ import { getShoes } from '@/services/requests/get-shoes'
 export function Home() {
   const [shoes, setShoes] = useState<IShoes[]>([])
   const [isGetShoesLoading, setIsGetShoesLoading] = useState(false)
+
+  const isEmptyShoes = shoes.length === 0
 
   async function onGetShoes() {
     try {
@@ -41,6 +44,7 @@ export function Home() {
         {isGetShoesLoading && <ShoesCardListSkeleton />}
         {!isGetShoesLoading && shoesCardMemoizedList}
       </div>
+      {isEmptyShoes && <EmptyList />}
     </main>
   )
 }

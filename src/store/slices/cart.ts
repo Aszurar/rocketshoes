@@ -129,10 +129,12 @@ export const useCurrentShoes = ({ id }: UseCurrentShoesProps) => {
  * @param state - Estado do carrinho
  * @returns {number}  Valor total dos produtos no carrinho
  */
-export const useCalculateItemsCartTotalPrince = (state: IProduct[]) => {
-  const total = state.reduce((acc, product) => {
+export const useCalculateItemsCartTotal = (state: IProduct[]) => {
+  let totalItems = 0
+  const totalPrice = state.reduce((acc, product) => {
+    totalItems += product.amount
     return acc + product.price * product.amount
   }, 0)
 
-  return total
+  return { totalPrice, totalItems }
 }

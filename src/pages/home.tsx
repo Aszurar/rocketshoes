@@ -7,6 +7,13 @@ import { ShoesCardListSkeleton } from '@/components/shoes-card-list-skeleton'
 import { IShoes } from '@/data/shoes'
 import { getShoes } from '@/services/requests/get-shoes'
 
+// TODO
+// [ ] - vERITIFACR TOOLTIP NOVAMENTE
+// [ ] - Aumaentar lagura do sheet
+// [ ] - Responsividade
+// [ ] - Paginação da tabela em 5 por padrão
+// [ ] - Acessibilidade
+
 export function Home() {
   const [shoes, setShoes] = useState<IShoes[]>([])
   const [isGetShoesLoading, setIsGetShoesLoading] = useState(false)

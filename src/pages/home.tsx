@@ -19,6 +19,7 @@ export function Home() {
       const response = await getShoes()
       setShoes(response)
     } catch (error) {
+      console.error('Erro ao buscar os produtos', error)
       toast.error('Erro ao buscar os produtos')
     } finally {
       setIsGetShoesLoading(false)

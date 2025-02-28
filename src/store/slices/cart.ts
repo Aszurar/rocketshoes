@@ -68,6 +68,13 @@ const cartSlice = createSlice({
       }
       saveCartToStorage(state)
     },
+    removeProductById: (state, action: PayloadAction<RemoveProductProps>) => {
+      const index = state.findIndex(
+        (product: IProduct) => product.id === action.payload.id,
+      )
+      state.splice(index, 1)
+      saveCartToStorage(state)
+    },
     updateProductAmount: (
       state,
       action: PayloadAction<UpdateProductAmountProps>,
@@ -89,9 +96,10 @@ const cartSlice = createSlice({
 })
 
 const cart = cartSlice.reducer
-const { addProduct, removeProduct, clearCart } = cartSlice.actions
+const { addProduct, removeProduct, removeProductById, clearCart } =
+  cartSlice.actions
 
-export { addProduct, cart, clearCart, removeProduct } // ajuste o caminho conforme sua estrutura
+export { addProduct, cart, clearCart, removeProduct, removeProductById } // ajuste o caminho conforme sua estrutura
 
 // ** Funções de utilidade **
 // Cart Selector to get the current shoes on cart

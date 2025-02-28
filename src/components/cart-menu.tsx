@@ -1,7 +1,9 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { ShoppingCart } from 'lucide-react'
-import { toast } from 'react-toastify'
+import { useState } from 'react'
 
+import { router } from '@/router'
+import { ROUTES } from '@/router/utils'
 import { useAppDispatch, useAppSelector } from '@/store'
 import { clearCart, useCalculateItemsCartTotal } from '@/store/slices/cart'
 import { DELIVERY_COST, monetaryValueFormatter } from '@/utils/monetary'
@@ -10,6 +12,7 @@ import { NotificationBadge } from './notification-badge'
 import { ShoesCardCartMemoized } from './shoes-card-cart'
 import { Tooltip } from './tooltip'
 import { Button } from './ui/button'
+import { ScrollArea } from './ui/scroll-area'
 import {
   Sheet,
   SheetContent,
@@ -23,6 +26,7 @@ import {
 export default function CartMenu() {
   const [parent] = useAutoAnimate()
   const dispatch = useAppDispatch()
+  const [isCartMenuOpen, setIsCartMenuOpen] = useState(false)
   const cart = useAppSelector((state) => state.cart)
   const { totalItems, totalPrice } = useCalculateItemsCartTotal(cart)
   const totalPriceWithDeliveryCost = totalPrice + DELIVERY_COST
@@ -39,23 +43,32 @@ export default function CartMenu() {
     dispatch(clearCart())
   }
 
+  function handleToggleCartMenu(value: boolean) {
+    setIsCartMenuOpen(value)
+  }
+
+  function handleCloseCartMenu() {
+    setIsCartMenuOpen(false)
+  }
+
   function handleFinishPurchase() {
-    toast.success('Compra finalizada com sucesso!')
+    router.navigate(ROUTES.checkout)
+    handleCloseCartMenu()
   }
 
   return (
-    <Sheet>
+    <Sheet open={isCartMenuOpen} onOpenChange={handleToggleCartMenu}>
       <NotificationBadge content={totalItems}>
         <Tooltip content="Abrir o carrinho">
           <SheetTrigger asChild>
-            <Button size="sm">
+            <Button size="sm" type="button">
               <ShoppingCart className="h-5 w-5" />
             </Button>
           </SheetTrigger>
         </Tooltip>
       </NotificationBadge>
 
-      <SheetContent>
+      <SheetContent className="w-[50rem]">
         <SheetHeader>
           <SheetTitle>Produtos selecionados</SheetTitle>
         </SheetHeader>
@@ -64,20 +77,22 @@ export default function CartMenu() {
           Gerencie os produtos que você deseja comprar.
         </SheetDescription>
 
-        <section ref={parent} className="mt-4 flex flex-col gap-3">
-          {cart.map((shoes) => (
-            <ShoesCardCartMemoized key={shoes.id} shoes={shoes} />
-          ))}
+        <ScrollArea className="h-[600px]">
+          <section ref={parent} className="mt-4 flex flex-col gap-3">
+            {cart.map((shoes) => (
+              <ShoesCardCartMemoized key={shoes.id} shoes={shoes} />
+            ))}
 
-          {isEmptyCart && (
-            <div className="flex flex-col items-center justify-center gap-2">
-              <ShoppingCart className="h-20 w-20 text-muted-foreground" />
-              <p className="font-medium text-muted-foreground">
-                Seu carrinho está vazio.
-              </p>
-            </div>
-          )}
-        </section>
+            {isEmptyCart && (
+              <div className="flex flex-col items-center justify-center gap-2">
+                <ShoppingCart className="h-20 w-20 text-muted-foreground" />
+                <p className="font-medium text-muted-foreground">
+                  Seu carrinho está vazio.
+                </p>
+              </div>
+            )}
+          </section>
+        </ScrollArea>
 
         <SheetFooter className="mt-5 flex flex-1 gap-5 sm:flex-col sm:space-x-0">
           <section

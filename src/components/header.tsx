@@ -1,6 +1,9 @@
+import { Link } from 'react-router-dom'
+
 import LogoSVG from '@/assets/logo.svg'
 import DarkLogoSVG from '@/assets/logo-dark.svg'
 import { useTheme } from '@/hooks/useTheme'
+import { ROUTES } from '@/router/utils'
 import { THEME } from '@/utils/theme'
 
 import CartMenu from './cart-menu'
@@ -12,7 +15,9 @@ export function Header() {
 
   return (
     <header className="flex items-center justify-between">
-      <img src={Logo} alt="" />
+      <Link to={ROUTES.home}>
+        <img src={Logo} alt="." />
+      </Link>
       <div className="flex items-center gap-2">
         <ThemeToggle />
 

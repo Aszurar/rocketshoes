@@ -28,7 +28,7 @@ export const cartItemsTableColumns: ColumnDef<IProduct>[] = [
     ),
     cell: ({ row }) => {
       return (
-        <span className="flex text-start font-medium">
+        <span className="flex min-w-52 text-start font-medium">
           {row.original.title}
         </span>
       )

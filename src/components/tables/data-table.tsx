@@ -29,13 +29,6 @@ type DataTableProps<TData, TValue> = {
   data: TData[]
 }
 
-// TODO
-// - [ ] Note that some transformations to get only de ids of selected rows e make a Set or a list to add
-// a global state some zustand or redux
-// - [ ] Note that some transformations to use a manual pagination with request from api to get the next
-// page of data, passing the page index and page size to the api
-// - [ ] Note that some transformations to sorting and filtering to use a request from api to get the
-// data sorted and filtered
 export function DataTable<TData, TValue>({
   columns,
   data,
@@ -56,6 +49,13 @@ export function DataTable<TData, TValue>({
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
+    autoResetPageIndex: true,
+    initialState: {
+      pagination: {
+        pageIndex: 0,
+        pageSize: 5,
+      },
+    },
     state: {
       sorting,
       columnFilters,

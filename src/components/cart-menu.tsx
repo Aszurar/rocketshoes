@@ -52,6 +52,8 @@ export default function CartMenu() {
   }
 
   function handleFinishPurchase() {
+    if (isEmptyCart) return
+
     router.navigate(ROUTES.checkout)
     handleCloseCartMenu()
   }
@@ -62,13 +64,13 @@ export default function CartMenu() {
         <Tooltip content="Abrir o carrinho">
           <SheetTrigger asChild>
             <Button size="sm" type="button">
-              <ShoppingCart className="h-5 w-5" />
+              <ShoppingCart className="h-5 w-5 max-w-sm" />
             </Button>
           </SheetTrigger>
         </Tooltip>
       </NotificationBadge>
 
-      <SheetContent className="w-[50rem]">
+      <SheetContent className="w-full max-w-full sm:max-w-sm">
         <SheetHeader>
           <SheetTitle>Produtos selecionados</SheetTitle>
         </SheetHeader>
@@ -77,8 +79,8 @@ export default function CartMenu() {
           Gerencie os produtos que você deseja comprar.
         </SheetDescription>
 
-        <ScrollArea className="h-[600px]">
-          <section ref={parent} className="mt-4 flex flex-col gap-3">
+        <ScrollArea className="max-h-[600px]">
+          <section ref={parent} className="mt-4 flex h-max flex-col gap-3">
             {cart.map((shoes) => (
               <ShoesCardCartMemoized key={shoes.id} shoes={shoes} />
             ))}

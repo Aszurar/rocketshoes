@@ -48,7 +48,7 @@ export function Home() {
 
   return (
     <main>
-      <div className="grid gap-x-4 gap-y-8 pb-4 lg:grid-cols-4">
+      <div className="grid justify-center gap-x-4 gap-y-8 pb-4 sm:grid-cols-2 sm:justify-start md:grid-cols-3 lg:grid-cols-4">
         {isGetShoesLoading && <ShoesCardListSkeleton />}
         {!isGetShoesLoading && shoesCardMemoizedList}
       </div>

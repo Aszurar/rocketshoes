@@ -1,12 +1,19 @@
+import { toast } from 'react-toastify'
+
 import { IProduct } from '@/data/shoes'
 
 import { CART_COLLECTION } from '../storage-config'
 
 function getCartFromStorage() {
-  const carts = localStorage.getItem(CART_COLLECTION)
-  const cartsParsed: IProduct[] = carts ? JSON.parse(carts) : []
+  try {
+    const carts = localStorage.getItem(CART_COLLECTION)
+    const cartsParsed: IProduct[] = carts ? JSON.parse(carts) : []
 
-  return cartsParsed
+    return cartsParsed
+  } catch (error) {
+    console.error('Erro ao recuperar produtos do carrinho', error)
+    toast.error('Erro ao recuperar produtos do carrinho')
+  }
 }
 
 export { getCartFromStorage }

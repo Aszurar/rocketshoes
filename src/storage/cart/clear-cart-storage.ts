@@ -1,7 +1,14 @@
+import { toast } from 'react-toastify'
+
 import { CART_COLLECTION } from '../storage-config'
 
 function clearCartFromStorage() {
-  localStorage.removeItem(CART_COLLECTION)
+  try {
+    localStorage.removeItem(CART_COLLECTION)
+  } catch (error) {
+    console.error('Erro ao limpar carrinho', error)
+    toast.error('Erro ao limpar carrinho')
+  }
 }
 
 export { clearCartFromStorage }

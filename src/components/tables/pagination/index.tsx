@@ -32,30 +32,33 @@ export function DataTablePagination<TData>({
   const currentPage = tablePageIndex + 1
 
   return (
-    <div className="flex items-center justify-between space-x-6 px-2 lg:space-x-8">
-      <div className="flex items-center space-x-2">
-        <p className="text-sm font-medium">Linhas por página</p>
-        <Select
-          value={`${tablePageSize}`}
-          onValueChange={(value) => {
-            table.setPageSize(Number(value))
-          }}
-        >
-          <SelectTrigger className="h-8 w-[70px]">
-            <SelectValue placeholder={tablePageSize} />
-          </SelectTrigger>
-          <SelectContent side="top">
-            {QUANTITY_PAGES_OPTIONS.map((pageSize) => (
-              <SelectItem key={pageSize} value={`${pageSize}`}>
-                {pageSize}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+    <div className="flex flex-col items-center justify-between space-x-6 px-2 sm:flex-row lg:space-x-8">
+      <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-2">
+          <p className="text-sm font-medium">Itens por página</p>
+          <Select
+            value={`${tablePageSize}`}
+            onValueChange={(value) => {
+              table.setPageSize(Number(value))
+            }}
+          >
+            <SelectTrigger className="h-8 w-[64px]">
+              <SelectValue placeholder={tablePageSize} />
+            </SelectTrigger>
+            <SelectContent side="top">
+              {QUANTITY_PAGES_OPTIONS.map((pageSize) => (
+                <SelectItem key={pageSize} value={`${pageSize}`}>
+                  {pageSize}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="flex w-[100px] items-center justify-center text-sm font-medium">
+          Página {currentPage} de {tablePageCount}
+        </div>
       </div>
-      <div className="flex w-[100px] items-center justify-center text-sm font-medium">
-        Página {currentPage} de {tablePageCount}
-      </div>
+
       <div className="flex items-center space-x-2">
         <Button
           variant="outline"

@@ -1,4 +1,4 @@
-import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { CircleMinus } from 'lucide-react'
 import { memo, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
@@ -32,7 +32,6 @@ export function ShoesCard({
   className,
   ...props
 }: ShoesProps) {
-  const [parent] = useAutoAnimate()
   const dispatch = useAppDispatch()
   const { shoesOnCart } = useCurrentShoes({ id: shoes.id })
 
@@ -90,7 +89,7 @@ export function ShoesCard({
       {...props}
     >
       <ContextMenu>
-        <ContextMenuTrigger ref={parent}>
+        <ContextMenuTrigger className="relative">
           <>
             <div className="overflow-hidden rounded-md">
               <img
@@ -104,11 +103,20 @@ export function ShoesCard({
                 )}
               />
             </div>
-            {!hasStockAmount && !isGetAmountLoading && (
-              <div className="absolute bottom-[-6px] right-0">
-                <CustomAlert title="Limite atindigo" />
-              </div>
-            )}
+            <AnimatePresence>
+              {!hasStockAmount && !isGetAmountLoading && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute bottom-[-6px] right-0"
+                >
+                  <div>
+                    <CustomAlert title="Limite atingido" />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </>
         </ContextMenuTrigger>
         <ContextMenuContent>
@@ -122,46 +130,70 @@ export function ShoesCard({
       <div className="flex flex-1 flex-col justify-between space-y-1">
         <section className="space-y-1">
           <h3 className="font-medium leading-none">{shoes.title}</h3>
-          <div ref={parent} className="flex items-center justify-between">
+          <div className="flex items-center justify-between">
             <p className="text-sm text-muted-foreground">
               {shoesPriceFormatted}
             </p>
 
-            {!!shoesOnCart && !isGetAmountLoading && (
-              <div className="text-xs font-bold text-muted-foreground">
-                <span className="text-primary">x{shoesOnCart.amount}</span>/
-                <strong>{amount}</strong>
-              </div>
-            )}
+            <AnimatePresence>
+              {!!shoesOnCart && !isGetAmountLoading && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 50 }}
+                  transition={{ type: 'spring', damping: 6, stiffness: 120 }}
+                  className="text-xs font-bold text-muted-foreground"
+                >
+                  <span className="text-primary">x{shoesOnCart.amount}</span>/
+                  <strong>{amount}</strong>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </section>
-        <div ref={parent} className="flex items-center justify-center gap-5">
-          <Button
-            size="sm"
-            type="button"
-            variant="outline"
-            className="self-center"
-            disabled={!hasStockAmount}
-            isLoading={isGetAmountLoading}
-            onClick={handleAddProductOnCart}
-            title={buttonLabelTitle}
-          >
-            Adicionar ao Carrinho
-          </Button>
-
-          {!!shoesOnCart && !isGetAmountLoading && (
-            <Tooltip asChild content="Remover do carrinho de compras">
+        <div className="flex items-center justify-center gap-5">
+          <AnimatePresence>
+            <motion.div
+              layout="position"
+              transition={{
+                type: 'spring',
+                stiffness: 700,
+                damping: 30,
+              }}
+            >
               <Button
-                size="2xs"
+                size="sm"
                 type="button"
-                variant="destructive"
+                variant="outline"
                 className="self-center"
-                onClick={handleRemoveProductOnCart}
+                disabled={!hasStockAmount}
+                isLoading={isGetAmountLoading}
+                onClick={handleAddProductOnCart}
+                title={buttonLabelTitle}
               >
-                <CircleMinus className="h-4 w-4" />
+                Adicionar ao Carrinho
               </Button>
-            </Tooltip>
-          )}
+            </motion.div>
+            {!!shoesOnCart && !isGetAmountLoading && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 50 }}
+              >
+                <Tooltip asChild content="Remover do carrinho de compras">
+                  <Button
+                    size="2xs"
+                    type="button"
+                    variant="destructive"
+                    className="self-center"
+                    onClick={handleRemoveProductOnCart}
+                  >
+                    <CircleMinus className="h-4 w-4" />
+                  </Button>
+                </Tooltip>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>

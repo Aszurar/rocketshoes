@@ -76,7 +76,7 @@ export function ShoesCounter({
     : LABELS.CART.LIMIT_REACHED
 
   return (
-    <div className="flex">
+    <div className="flex justify-center">
       <Button
         type="button"
         size="xs"

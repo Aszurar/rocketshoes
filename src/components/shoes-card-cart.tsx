@@ -32,7 +32,7 @@ export function ShoesCardCart({ shoes }: Readonly<ShoesCardCartProps>) {
         <ShoesCardImage image={shoes.image} title={shoes.title} />
         <div ref={parent} className="space-y-1">
           <CardTitle className="text-sm">{shoes.title}</CardTitle>
-          {!hasStockAmount && <CustomAlert title="Limite atindigo" />}
+          {!hasStockAmount && <CustomAlert title="Limite atingido" />}
         </div>
       </CardHeader>
       <CardFooter ref={parent} className="flex flex-1 flex-col gap-1 p-3">

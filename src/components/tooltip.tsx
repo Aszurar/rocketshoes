@@ -1,6 +1,7 @@
 import {
   Tooltip as TooltipUI,
   TooltipContent,
+  TooltipProvider,
   TooltipTrigger,
 } from './ui/tooltip'
 
@@ -20,13 +21,15 @@ export function Tooltip({
   ref,
 }: Readonly<TooltipProps>) {
   return (
-    <TooltipUI>
-      <TooltipTrigger ref={ref} asChild={asChild}>
-        {children}
-      </TooltipTrigger>
-      <TooltipContent side={side}>
-        <p>{content}</p>
-      </TooltipContent>
-    </TooltipUI>
+    <TooltipProvider>
+      <TooltipUI>
+        <TooltipTrigger ref={ref} asChild={asChild}>
+          {children}
+        </TooltipTrigger>
+        <TooltipContent side={side}>
+          <p>{content}</p>
+        </TooltipContent>
+      </TooltipUI>
+    </TooltipProvider>
   )
 }

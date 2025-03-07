@@ -8,7 +8,7 @@ import { saveCartToStorage } from '@/storage/cart/save-cart-storage'
 import { RootState, useAppSelector } from '@/store'
 
 const cartFormStorage = getCartFromStorage()
-const initialState = cartFormStorage || []
+const initialState = cartFormStorage || ([] as IProduct[])
 
 type AddProductProps = IShoes & {
   stockAmount: number

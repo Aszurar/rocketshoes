@@ -4,21 +4,17 @@ import { toast } from 'react-toastify'
 import { EmptyList } from '@/components/empty-list'
 import { ShoesCardMemoized } from '@/components/shoes-card'
 import { ShoesCardListSkeleton } from '@/components/shoes-card-list-skeleton'
+import { VirtualizedGrid } from '@/components/virtualized-grid-list/virtualized-grid'
 import { IShoes } from '@/data/shoes'
 import { getShoes } from '@/services/requests/get-shoes'
 
 // TODO
-// [ ] - vERITIFACR TOOLTIP NOVAMENTE
-// [ ] - Aumaentar lagura do sheet
-// [ ] - Responsividade
-// [ ] - Paginação da tabela em 5 por padrão
+// [ ] - Anotar sobre a virtualização da home após refatoração
 // [ ] - Acessibilidade
 
 export function Home() {
   const [shoes, setShoes] = useState<IShoes[]>([])
   const [isGetShoesLoading, setIsGetShoesLoading] = useState(false)
-
-  const isEmptyShoes = shoes.length === 0
 
   async function onGetShoes() {
     try {
@@ -37,22 +33,27 @@ export function Home() {
     onGetShoes()
   }, [])
 
-  const shoesCardMemoizedList = shoes.map((shoe) => (
-    <ShoesCardMemoized
-      key={shoe.id}
-      shoes={shoe}
-      className="w-62.5"
-      aspectRatio="portrait"
-    />
-  ))
+  function renderShoesCard(shoesItem: IShoes) {
+    return (
+      <ShoesCardMemoized
+        key={`shoes-${shoesItem.id}`}
+        shoes={shoesItem}
+        aspectRatio="portrait"
+      />
+    )
+  }
 
   return (
     <main>
-      <div className="grid justify-center gap-x-4 gap-y-8 pb-4 sm:grid-cols-2 sm:justify-start md:grid-cols-3 lg:grid-cols-4">
-        {isGetShoesLoading && <ShoesCardListSkeleton />}
-        {!isGetShoesLoading && shoesCardMemoizedList}
-      </div>
-      {isEmptyShoes && <EmptyList />}
+      <VirtualizedGrid
+        items={shoes}
+        renderItem={renderShoesCard}
+        height="1000px"
+        gap={16}
+        isLoading={isGetShoesLoading}
+        loadingComponent={<ShoesCardListSkeleton />}
+        emptyComponent={<EmptyList />}
+      />
     </main>
   )
 }

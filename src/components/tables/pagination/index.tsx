@@ -29,11 +29,13 @@ export function DataTablePagination<TData>({
   const tablePageIndex = table.getState().pagination.pageIndex
   const tablePageCount = table.getPageCount()
 
+  const hasPages = tablePageCount > 1
+
   const currentPage = tablePageIndex + 1
 
   return (
-    <div className="flex flex-col items-center justify-between space-x-6 px-2 sm:flex-row lg:space-x-8">
-      <div className="flex items-center space-x-1">
+    <div className="flex w-full flex-col items-center space-x-6 px-2 sm:relative sm:flex-row sm:justify-between lg:space-x-8">
+      <div className="flex w-full items-center justify-between space-x-1">
         <div className="flex items-center space-x-2">
           <p className="text-sm font-medium">Itens por página</p>
           <Select
@@ -54,9 +56,12 @@ export function DataTablePagination<TData>({
             </SelectContent>
           </Select>
         </div>
-        <div className="flex w-[100px] items-center justify-center text-sm font-medium">
-          Página {currentPage} de {tablePageCount}
-        </div>
+
+        {hasPages && (
+          <div className="flex w-[100px] items-center justify-center text-sm font-medium sm:absolute sm:left-1/2 sm:-translate-x-1/2 sm:transform">
+            Página {currentPage} de {tablePageCount}
+          </div>
+        )}
       </div>
 
       <div className="flex items-center space-x-2">

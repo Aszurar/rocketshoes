@@ -83,7 +83,7 @@ export function ShoesCard({
   return (
     <div
       className={cn(
-        'flex max-h-[440px] flex-col space-y-3 rounded-md border border-border p-4',
+        'flex h-[440px] w-64 flex-col space-y-3 rounded-md border border-border p-4',
         className,
       )}
       {...props}
@@ -103,9 +103,10 @@ export function ShoesCard({
                 )}
               />
             </div>
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
               {!hasStockAmount && !isGetAmountLoading && (
                 <motion.div
+                  key={`stock-limit-reached-${shoes.id}`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -138,6 +139,7 @@ export function ShoesCard({
             <AnimatePresence>
               {!!shoesOnCart && !isGetAmountLoading && (
                 <motion.div
+                  key={`amount-${shoes.id}`}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 50 }}
@@ -154,6 +156,7 @@ export function ShoesCard({
         <div className="flex items-center justify-center gap-5">
           <AnimatePresence>
             <motion.div
+              key={`add-to-cart-${shoes.id}`}
               layout="position"
               transition={{
                 type: 'spring',
@@ -176,6 +179,7 @@ export function ShoesCard({
             </motion.div>
             {!!shoesOnCart && !isGetAmountLoading && (
               <motion.div
+                key={`remove-from-cart-${shoes.id}`}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}

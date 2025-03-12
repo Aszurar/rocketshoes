@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { EmptyList } from '@/components/empty-list'
@@ -9,7 +9,6 @@ import { IShoes } from '@/data/shoes'
 import { getShoes } from '@/services/requests/get-shoes'
 
 // TODO
-// [ ] - Anotar sobre a virtualização da home após refatoração
 // [ ] - Acessibilidade
 
 export function Home() {
@@ -33,7 +32,7 @@ export function Home() {
     onGetShoes()
   }, [])
 
-  function renderShoesCard(shoesItem: IShoes) {
+  const renderShoesCard = useCallback((shoesItem: IShoes) => {
     return (
       <ShoesCardMemoized
         key={`shoes-${shoesItem.id}`}
@@ -41,10 +40,10 @@ export function Home() {
         aspectRatio="portrait"
       />
     )
-  }
+  }, [])
 
   return (
-    <main>
+    <main className="ml-auto mr-auto">
       <VirtualizedGrid
         items={shoes}
         renderItem={renderShoesCard}

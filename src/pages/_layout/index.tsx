@@ -9,7 +9,7 @@ import { store } from '@/store'
 export function Layout() {
   const { theme } = useTheme()
   return (
-    <div className="mx-auto min-h-screen max-w-6xl p-6">
+    <div className="mx-auto min-h-screen max-w-6xl p-6 antialiased">
       <ReduxProvider store={store}>
         <ToastContainer theme={theme} />
 

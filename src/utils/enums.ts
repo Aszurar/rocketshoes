@@ -1,4 +1,5 @@
 enum WINDOW_SIZES {
+  xs = 390,
   sm = 640,
   md = 768,
   lg = 1024,

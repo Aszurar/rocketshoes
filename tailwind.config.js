@@ -20,6 +20,14 @@ module.exports = {
     extend: {
       width: {
         62.5: '15.625rem',
+        77.5: '19.375rem',
+      },
+      height: {
+        110: '27.5rem',
+        27.5: '6.875rem',
+      },
+      screens: {
+        xs: '390px',
       },
 
       colors: {

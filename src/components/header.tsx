@@ -16,7 +16,7 @@ export function Header() {
   return (
     <header className="flex items-center justify-between">
       <Link to={ROUTES.home}>
-        <img src={Logo} alt="." />
+        <img src={Logo} alt="." width={276} height={36} />
       </Link>
       <div className="flex items-center gap-2">
         <ThemeToggle />

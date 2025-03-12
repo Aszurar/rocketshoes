@@ -27,15 +27,17 @@ export function ShoesCardCart({ shoes }: Readonly<ShoesCardCartProps>) {
   }
 
   return (
-    <Card className="relative flex items-center justify-center">
+    <Card className="h-27.5 w-77.5 relative flex items-center justify-between sm:w-[420px]">
       <CardHeader className="flex flex-row items-center justify-center gap-2 p-3 pr-1">
-        <ShoesCardImage image={shoes.image} title={shoes.title} />
+        <ShoesCardImage image={shoes.image} title={shoes.title} size="sm" />
         <div ref={parent} className="space-y-1">
-          <CardTitle className="text-sm">{shoes.title}</CardTitle>
+          <CardTitle className="line-clamp-3 text-sm sm:line-clamp-2">
+            {shoes.title}
+          </CardTitle>
           {!hasStockAmount && <CustomAlert title="Limite atingido" />}
         </div>
       </CardHeader>
-      <CardFooter ref={parent} className="flex flex-1 flex-col gap-1 p-3">
+      <CardFooter ref={parent} className="flex min-w-fit flex-col gap-1 p-1">
         <p className="text-center text-sm font-semibold">{priceFormatted}</p>
 
         <ShoesCounter shoes={shoes} onUpdateStockAmount={updateStockAmount} />

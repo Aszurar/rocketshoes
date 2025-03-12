@@ -1,7 +1,8 @@
 import { cn } from '@/lib/utils'
 
 const sizes = {
-  sm: 48,
+  xs: 48,
+  sm: 64,
   md: 80,
 } as const
 
@@ -20,14 +21,17 @@ export function ShoesCardImage({
 }: Readonly<ShoesCardImageProps>) {
   const imageSize = sizes[size]
   return (
-    <div className="min-w-12 overflow-hidden rounded-full">
+    <div
+      className={`min-h-[${imageSize}px] min-w-[${imageSize}px] overflow-hidden rounded-full`}
+    >
       <img
         src={image}
         alt={title}
         width={imageSize}
         height={imageSize}
         className={cn(
-          'min-w-12 rounded-full border-2 border-primary object-cover p-1',
+          'rounded-full border-2 border-primary object-cover p-1',
+          `h-[${imageSize}px] w-[${imageSize}px]`,
         )}
       />
     </div>

@@ -1,7 +1,8 @@
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { ShoppingCart } from 'lucide-react'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
+import { IProduct } from '@/data/shoes'
+import { useResponsiveDevice } from '@/hooks/useResponsiveDevice'
 import { router } from '@/router'
 import { ROUTES } from '@/router/utils'
 import { useAppDispatch, useAppSelector } from '@/store'
@@ -12,7 +13,6 @@ import { NotificationBadge } from './notification-badge'
 import { ShoesCardCartMemoized } from './shoes-card-cart'
 import { Tooltip } from './tooltip'
 import { Button } from './ui/button'
-import { ScrollArea } from './ui/scroll-area'
 import {
   Sheet,
   SheetContent,
@@ -22,10 +22,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from './ui/sheet'
+import { VirtualizedList } from './virtualized-list/virtualized-list'
 
 export default function CartMenu() {
-  const [parent] = useAutoAnimate()
   const dispatch = useAppDispatch()
+  const { isMobile } = useResponsiveDevice()
+
+  const cartMenuListHeight = isMobile ? '400px' : '600px'
+
   const [isCartMenuOpen, setIsCartMenuOpen] = useState(false)
   const cart = useAppSelector((state) => state.cart)
   const { totalItems, totalPrice } = useCalculateItemsCartTotal(cart)
@@ -58,43 +62,54 @@ export default function CartMenu() {
     handleCloseCartMenu()
   }
 
+  const emptyCard = useCallback(() => {
+    return (
+      <div className="flex flex-col items-center justify-center gap-2">
+        <ShoppingCart className="h-20 w-20 text-muted-foreground" />
+        <p className="font-medium text-muted-foreground">
+          Seu carrinho está vazio.
+        </p>
+      </div>
+    )
+  }, [])
+
+  const emptyCardComponent = emptyCard()
+
+  const renderShoesCart = useCallback((shoes: IProduct) => {
+    return <ShoesCardCartMemoized key={shoes.id} shoes={shoes} />
+  }, [])
+
   return (
     <Sheet open={isCartMenuOpen} onOpenChange={handleToggleCartMenu}>
       <NotificationBadge content={totalItems}>
-        <Tooltip content="Abrir o carrinho">
+        <Tooltip asChild content="Abrir o carrinho">
           <SheetTrigger asChild>
-            <Button size="sm" type="button">
+            <Button size="sm" type="button" aria-label="Abrir carrinho">
               <ShoppingCart className="h-5 w-5 max-w-sm" />
             </Button>
           </SheetTrigger>
         </Tooltip>
       </NotificationBadge>
 
-      <SheetContent className="w-full max-w-full sm:max-w-sm">
+      <SheetContent className="w-full max-w-full overflow-auto sm:max-w-[490px]">
         <SheetHeader>
           <SheetTitle>Produtos selecionados</SheetTitle>
         </SheetHeader>
 
-        <SheetDescription>
+        <SheetDescription className="text-center sm:text-start">
           Gerencie os produtos que você deseja comprar.
         </SheetDescription>
 
-        <ScrollArea className="max-h-[600px]">
-          <section ref={parent} className="mt-4 flex h-max flex-col gap-3">
-            {cart.map((shoes) => (
-              <ShoesCardCartMemoized key={shoes.id} shoes={shoes} />
-            ))}
-
-            {isEmptyCart && (
-              <div className="flex flex-col items-center justify-center gap-2">
-                <ShoppingCart className="h-20 w-20 text-muted-foreground" />
-                <p className="font-medium text-muted-foreground">
-                  Seu carrinho está vazio.
-                </p>
-              </div>
-            )}
-          </section>
-        </ScrollArea>
+        <VirtualizedList
+          items={cart}
+          gap={8}
+          isMaxHeight
+          height={cartMenuListHeight}
+          renderItem={renderShoesCart}
+          estimateSize={110}
+          loadingComponent={null}
+          emptyComponent={emptyCardComponent}
+        />
 
         <SheetFooter className="mt-5 flex flex-1 gap-5 sm:flex-col sm:space-x-0">
           <section

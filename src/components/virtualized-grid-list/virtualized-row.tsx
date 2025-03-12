@@ -61,7 +61,7 @@ export function VirtualizedRow<T>({
   return (
     <div
       key={virtualRow.key}
-      className="absolute left-0 top-0 grid w-full"
+      className="absolute left-0 top-0 flex w-full items-center justify-center sm:grid sm:items-start sm:justify-start"
       style={{
         // A linha tem a altura exata do tamanho calculado pelo TanStack Virtual
         height: `${virtualRow.size}px`,

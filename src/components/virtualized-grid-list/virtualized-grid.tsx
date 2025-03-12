@@ -68,7 +68,7 @@ export function VirtualizedGrid<T>({
   items,
   height,
   gap = 16,
-  overscan = 3,
+  overscan = 5,
   isLoading,
   className,
   renderItem,

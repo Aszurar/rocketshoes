@@ -26,7 +26,7 @@ import { VirtualizedList } from './virtualized-list/virtualized-list'
 
 export default function CartMenu() {
   const dispatch = useAppDispatch()
-  const { isMobile } = useResponsiveDevice()
+  const isMobile = useResponsiveDevice(500)
 
   const cartMenuListHeight = isMobile ? '400px' : '600px'
 
@@ -78,6 +78,11 @@ export default function CartMenu() {
   const renderShoesCart = useCallback((shoes: IProduct) => {
     return <ShoesCardCartMemoized key={shoes.id} shoes={shoes} />
   }, [])
+
+  console.log('isMobile', isMobile)
+  // useEffect(() => {
+  //   console.log('isMobile', isMobile)
+  // }, [isMobile])
 
   return (
     <Sheet open={isCartMenuOpen} onOpenChange={handleToggleCartMenu}>

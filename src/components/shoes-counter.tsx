@@ -1,79 +1,71 @@
 import { MinusCircle, PlusCircle } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
 
 import { IProduct } from '@/data/shoes'
-import { getAmount } from '@/services/requests/get-amount'
+import { useStockStatus } from '@/hooks/useStockStatus'
 import { useAppDispatch } from '@/store'
 import { addProduct, removeProduct } from '@/store/slices/cart'
 import { LABELS } from '@/utils/labels'
 
+import { CustomAlert } from './custom-alert'
+import { DeleteItemCell } from './tables/columns/delete-item-cell'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Skeleton } from './ui/skeleton'
 
 type ShoesCardCartProps = {
-  shoes: IProduct
-  onUpdateStockAmount?: (stock: number) => void
+  shoesOnCart: IProduct
+  isDeleteButtonVisible?: boolean
 }
 
 export function ShoesCounter({
-  shoes,
-  onUpdateStockAmount,
+  shoesOnCart,
+  isDeleteButtonVisible = false,
 }: Readonly<ShoesCardCartProps>) {
-  const [stockAmount, setStockAmount] = useState(0)
-
-  const [isGetAmountLoading, setIsGetAmountLoading] = useState(false)
-
-  const hasStockAmount = shoes ? shoes.amount < stockAmount : true
-
   const dispatch = useAppDispatch()
+
+  const {
+    stock,
+    isStockError,
+    isStockPending,
+    canAddMoreInCart,
+    stockAlertContent,
+  } = useStockStatus({
+    shoes: shoesOnCart,
+    cartQuantity: shoesOnCart.amount,
+  })
 
   function handleAddProductOnCart() {
     dispatch(
       addProduct({
-        ...shoes,
-        stockAmount,
+        ...shoesOnCart,
+        stockAmount: stock.amount,
       }),
     )
   }
 
   function handleRemoveProductOnCart() {
-    dispatch(removeProduct({ id: shoes.id }))
+    dispatch(removeProduct({ id: shoesOnCart.id }))
   }
 
-  async function onGetAmount() {
-    try {
-      setIsGetAmountLoading(true)
-      const stock = await getAmount(shoes.id)
-
-      if (!stock) {
-        throw new Error('Error on get amount')
-      }
-
-      setStockAmount(stock.amount)
-      if (onUpdateStockAmount) {
-        onUpdateStockAmount(stock.amount)
-      }
-    } catch (error) {
-      console.error(error)
-      toast.error('Erro ao buscar a quantidade do produto')
-    } finally {
-      setIsGetAmountLoading(false)
-    }
-  }
-
-  useEffect(() => {
-    onGetAmount()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  if (isGetAmountLoading) {
+  if (isStockPending) {
     return <Skeleton className="h-8 w-24" />
   }
-  const buttonLabelTitle = hasStockAmount
+
+  const buttonLabelTitle = canAddMoreInCart
     ? LABELS.CART.ADD
     : LABELS.CART.LIMIT_REACHED
+
+  if (isStockError) {
+    return (
+      <div className="flex gap-1">
+        <CustomAlert
+          title={stockAlertContent.title}
+          description={stockAlertContent.description}
+        />
+        {isDeleteButtonVisible && <DeleteItemCell shoesId={shoesOnCart.id} />}
+      </div>
+    )
+  }
 
   return (
     <div className="flex justify-center">
@@ -82,7 +74,7 @@ export function ShoesCounter({
         size="xs"
         variant="ghost"
         className="h-8 w-10 p-0"
-        disabled={!hasStockAmount}
+        disabled={!canAddMoreInCart}
         onClick={handleAddProductOnCart}
         aria-label={buttonLabelTitle}
         title={buttonLabelTitle}
@@ -91,9 +83,9 @@ export function ShoesCounter({
       </Button>
       <Input
         readOnly
-        value={shoes.amount}
+        value={shoesOnCart.amount}
         className="h-8 max-w-11 px-2 py-1 text-center"
-        disabled={!hasStockAmount}
+        disabled={!canAddMoreInCart}
       />
       <Button
         type="button"

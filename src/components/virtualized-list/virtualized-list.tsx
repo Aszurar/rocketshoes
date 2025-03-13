@@ -107,7 +107,7 @@ export function VirtualizedList<T>({
     <div
       ref={listContainerRef}
       className={cn(
-        'xs:mt-5 relative mt-2 overflow-y-auto overflow-x-hidden sm:mt-10',
+        'relative mt-2 overflow-y-auto overflow-x-hidden xs:mt-5 sm:mt-10',
         'scrollbar-thin scrollbar-track-transparent scrollbar-thumb-primary scrollbar-thumb-rounded-sm',
         className,
       )}

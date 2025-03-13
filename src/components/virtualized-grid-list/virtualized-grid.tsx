@@ -24,7 +24,7 @@ import { VirtualizedRow } from './virtualized-row'
  */
 
 type VirtualizedGridProps<T> = {
-  items: T[]
+  items?: T[]
   gap?: number
   overscan?: number
   isLoading?: boolean
@@ -76,15 +76,17 @@ export function VirtualizedGrid<T>({
   emptyComponent,
   loadingComponent,
 }: Readonly<VirtualizedGridProps<T>>) {
+  const itemsList = items || []
+
   // Referência para o container da grid
   const listContainerRef = useRef<HTMLDivElement>(null)
   // Determina o número de colunas com base na largura do container
   const columnCount = useColumnCount({ containerRef: listContainerRef })
 
-  const isEmpty = items.length === 0 && !isLoading
+  const isEmpty = itemsList.length === 0 && !isLoading
 
   // Calcula o número total de linhas necessárias
-  const rowCount = Math.ceil(items.length / columnCount)
+  const rowCount = Math.ceil(itemsList.length / columnCount)
 
   // Normaliza a altura do container para ser usado no CSS
   const listHeight = typeof height === 'number' ? `${height}px` : height
@@ -143,7 +145,7 @@ export function VirtualizedGrid<T>({
             <VirtualizedRow
               key={virtualRow.key}
               virtualRow={virtualRow}
-              items={items}
+              items={itemsList}
               columnCount={columnCount}
               startIndex={startIndex}
               renderItem={renderItem}

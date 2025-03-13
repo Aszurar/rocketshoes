@@ -1,16 +1,14 @@
-import { Row } from '@tanstack/react-table'
 import { Trash } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { IProduct } from '@/data/shoes'
 import { useAppDispatch } from '@/store'
 import { removeProductById } from '@/store/slices/cart'
 
 type DeleteItemCellProps = {
-  row: Row<IProduct>
+  shoesId: number
 }
 
-export function DeleteItemCell({ row }: Readonly<DeleteItemCellProps>) {
+export function DeleteItemCell({ shoesId }: Readonly<DeleteItemCellProps>) {
   const dispatch = useAppDispatch()
 
   function handleRemoveProductOnCart(shoesId: number) {
@@ -24,7 +22,7 @@ export function DeleteItemCell({ row }: Readonly<DeleteItemCellProps>) {
       variant="ghost"
       className="h-8 w-10 items-center p-0"
       onClick={() => {
-        handleRemoveProductOnCart(row.original.id)
+        handleRemoveProductOnCart(shoesId)
       }}
       aria-label="Remover item"
       title="Remover item"

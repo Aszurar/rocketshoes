@@ -40,7 +40,7 @@ export const cartItemsTableColumns: ColumnDef<IProduct>[] = [
     header: 'QTD',
 
     cell: ({ row }) => {
-      return <ShoesCounter shoes={row.original} />
+      return <ShoesCounter shoesOnCart={row.original} />
     },
   },
   {
@@ -58,7 +58,7 @@ export const cartItemsTableColumns: ColumnDef<IProduct>[] = [
   {
     id: 'delete',
     cell: ({ row }) => {
-      return <DeleteItemCell row={row} />
+      return <DeleteItemCell shoesId={row.original.id} />
     },
   },
 ]

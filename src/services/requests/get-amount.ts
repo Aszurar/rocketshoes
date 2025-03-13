@@ -1,6 +1,6 @@
 import { api } from '../api'
 
-type GetAmountResponse = {
+export type GetAmountResponse = {
   id: number
   amount: number
 }

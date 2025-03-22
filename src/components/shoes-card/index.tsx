@@ -109,12 +109,12 @@ export function ShoesCard({
 
       <div className="flex flex-1 flex-col justify-between space-y-1">
         <section className="space-y-2">
-          <h3
+          <h2
             className="line-clamp-2 font-medium leading-none"
             title={shoes.title}
           >
             {shoes.title}
-          </h3>
+          </h2>
           <div className="flex items-center justify-between">
             <p className="text-sm text-muted-foreground">
               {shoesPriceFormatted}

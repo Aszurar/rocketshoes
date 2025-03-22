@@ -7,20 +7,32 @@ import { cn } from '@/lib/utils'
 import { Spinner } from '../spinner'
 
 const buttonVariants = cva(
-  'inline-flex gap-2 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  cn(
+    'text-sm font-semibold',
+    'inline-flex gap-2 items-center justify-center whitespace-nowrap rounded-md',
+    'ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ',
+    'disabled:cursor-not-allowed disabled:opacity-50 ',
+    'animate-shine bg-[length:400%_100%] transition-colors',
+  ),
   {
     variants: {
       variant: {
         default:
-          'bg-primary text-primary-foreground hover:bg-primary/90 disabled:hover:bg-primary active:bg-primary/80',
+          'bg-foreground text-background hover:opacity-85 disabled:hover:opacity-100 active:opacity-90 data-[animated-shine=true]:bg-shine-animated-default dark:data-[animated-shine=true]:text-foreground ',
+        primary:
+          'bg-primary text-primary-foreground hover:brightness-110 disabled:hover:brightness-100 active:brightness-90 data-[animated-shine=true]:bg-shine-animated-primary',
         destructive:
-          'bg-destructive text-destructive-foreground hover:bg-destructive/90 disabled:hover:bg-destructive active:bg-destructive/80',
+          'bg-destructive text-destructive-foreground hover:brightness-110 disabled:hover:bg-destructive active:brightness-90 data-[animated-shine=true]:bg-shine-animated-destructive',
+        success:
+          'bg-success text-success-foreground hover:brightness-110 disabled:hover:bg-success active:brightness-90 data-[animated-shine=true]:bg-shine-animated-success',
+        warning:
+          'bg-warning text-warning-foreground hover:brightness-110 disabled:hover:bg-warning active:brightness-90 data-[animated-shine=true]:bg-shine-animated-warning',
         outline:
-          'border border-input bg-background hover:bg-accent hover:text-accent-foreground disabled:hover:bg-background active:bg-accent/80',
+          'border border-input bg-background hover:bg-accent hover:text-accent-foreground disabled:hover:bg-background active:bg-accent/80 ',
         secondary:
-          'bg-secondary text-secondary-foreground hover:bg-secondary/80 disabled:hover:bg-secondary active:bg-secondary/70',
+          'bg-secondary text-secondary-foreground hover:bg-secondary/60 disabled:hover:bg-secondary active:bg-secondary/90 data-[animated-shine=true]:bg-shine-animated-secondary',
         ghost:
-          'hover:bg-accent hover:text-accent-foreground disabled:hover:bg-transparent active:bg-muted-foreground/10',
+          'hover:bg-accent hover:text-accent-foreground disabled:hover:bg-transparent active:bg-muted-foreground/10 ',
         link: 'text-primary underline-offset-4 hover:underline disabled:hover:underline-none active:underline-offset-2',
       },
       size: {
@@ -33,7 +45,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: 'default',
+      variant: 'primary',
       size: 'default',
     },
   },
@@ -41,9 +53,10 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-  VariantProps<typeof buttonVariants> {
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean
   isLoading?: boolean
+  isAnimatedShine?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -54,6 +67,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       asChild = false,
       isLoading = false,
+      isAnimatedShine = false,
       children,
       disabled,
       ...props
@@ -64,9 +78,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : 'button'
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        disabled={disabled ?? isLoading}
         ref={ref}
+        disabled={disabled ?? isLoading}
+        data-animated-shine={isAnimatedShine}
+        className={cn(buttonVariants({ variant, size, className }))}
         {...props}
       >
         {content}

@@ -79,11 +79,6 @@ export default function CartMenu() {
     return <ShoesCardCartMemoized key={shoes.id} shoes={shoes} />
   }, [])
 
-  console.log('isMobile', isMobile)
-  // useEffect(() => {
-  //   console.log('isMobile', isMobile)
-  // }, [isMobile])
-
   return (
     <Sheet open={isCartMenuOpen} onOpenChange={handleToggleCartMenu}>
       <NotificationBadge content={totalItems}>
@@ -141,6 +136,7 @@ export default function CartMenu() {
 
           <Button
             type="button"
+            isAnimatedShine
             className="w-full"
             disabled={isEmptyCart}
             onClick={handleFinishPurchase}

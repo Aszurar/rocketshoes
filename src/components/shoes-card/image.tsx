@@ -20,7 +20,6 @@ export function ShoesImage({
   const [error, setError] = useState(false)
 
   function handleLoad() {
-    console.log('loaded')
     setIsLoading(false)
   }
 

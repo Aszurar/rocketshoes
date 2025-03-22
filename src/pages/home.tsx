@@ -3,6 +3,7 @@ import { useCallback, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
 import { EmptyList } from '@/components/empty-list'
+import Seo from '@/components/seo'
 import { ShoesCardMemoized } from '@/components/shoes-card'
 import { ShoesCardListSkeleton } from '@/components/shoes-card-list-skeleton'
 import { VirtualizedGrid } from '@/components/virtualized-grid-list/virtualized-grid'
@@ -42,17 +43,23 @@ export function Home() {
   }, [])
 
   return (
-    <main className="ml-auto mr-auto">
-      <VirtualizedGrid
-        items={shoes}
-        renderItem={renderShoesCard}
-        height="1000px"
-        gap={16}
-        overscan={3}
-        isLoading={isShoesPending}
-        loadingComponent={<ShoesCardListSkeleton />}
-        emptyComponent={<EmptyList />}
+    <>
+      <Seo
+        title="Produtos"
+        description="Venha comprar seus tênis no melhor preço! Confira e veja seus produtos favoritos aqui, temos diversas opções para todos os gostos!"
       />
-    </main>
+      <main className="ml-auto mr-auto">
+        <VirtualizedGrid
+          items={shoes}
+          renderItem={renderShoesCard}
+          height="1000px"
+          gap={16}
+          overscan={3}
+          isLoading={isShoesPending}
+          loadingComponent={<ShoesCardListSkeleton />}
+          emptyComponent={<EmptyList />}
+        />
+      </main>
+    </>
   )
 }

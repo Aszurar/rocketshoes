@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://rocketshoes-sand.vercel.app/sitemap.xml
+
+
+User-agent: *
+Allow: /
+Disallow: /checkout
+Sitemap: https://seusite.com.br/sitemap.xml

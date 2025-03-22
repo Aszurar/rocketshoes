@@ -65,6 +65,7 @@ export default tseslint.config(
         arrowParens: 'always',
         semi: false,
         endOfLine: 'auto',
+        offsetTernaryExpressions: true,
       }],
       // '@typescript-eslint/no-require-imports': 'off',
       'react/react-in-jsx-scope': 'off',

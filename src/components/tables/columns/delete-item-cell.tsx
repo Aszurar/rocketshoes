@@ -2,7 +2,7 @@ import { Trash } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { useAppDispatch } from '@/store'
-import { removeProductById } from '@/store/slices/cart'
+import { deleteProductById } from '@/store/slices/cart'
 
 type DeleteItemCellProps = {
   shoesId: number
@@ -12,7 +12,7 @@ export function DeleteItemCell({ shoesId }: Readonly<DeleteItemCellProps>) {
   const dispatch = useAppDispatch()
 
   function handleRemoveProductOnCart(shoesId: number) {
-    dispatch(removeProductById({ id: shoesId }))
+    dispatch(deleteProductById({ id: shoesId }))
   }
 
   return (

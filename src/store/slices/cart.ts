@@ -18,10 +18,6 @@ type RemoveProductProps = {
   id: number
 }
 
-type UpdateProductAmountProps = RemoveProductProps & {
-  amount: number
-}
-
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -42,8 +38,13 @@ const cartSlice = createSlice({
           return
         }
 
+        const { id, image, price, title } = action.payload
+
         const newProduct = {
-          ...action.payload,
+          id,
+          image,
+          price,
+          title,
           amount: 1,
         }
 
@@ -68,25 +69,18 @@ const cartSlice = createSlice({
       }
       saveCartToStorage(state)
     },
-    removeProductById: (state, action: PayloadAction<RemoveProductProps>) => {
-      const index = state.findIndex(
-        (product: IProduct) => product.id === action.payload.id,
-      )
-      state.splice(index, 1)
-      saveCartToStorage(state)
-    },
-    updateProductAmount: (
-      state,
-      action: PayloadAction<UpdateProductAmountProps>,
-    ) => {
+    deleteProductById: (state, action: PayloadAction<RemoveProductProps>) => {
       const productExists = state.find(
         (product: IProduct) => product.id === action.payload.id,
       )
 
       if (productExists) {
-        productExists.amount = action.payload.amount
+        const index = state.findIndex(
+          (product: IProduct) => product.id === action.payload.id,
+        )
+        state.splice(index, 1)
+        saveCartToStorage(state)
       }
-      saveCartToStorage(state)
     },
     clearCart: () => {
       clearCartFromStorage()
@@ -96,10 +90,10 @@ const cartSlice = createSlice({
 })
 
 const cart = cartSlice.reducer
-const { addProduct, removeProduct, removeProductById, clearCart } =
+const { addProduct, removeProduct, deleteProductById, clearCart } =
   cartSlice.actions
 
-export { addProduct, cart, clearCart, removeProduct, removeProductById } // ajuste o caminho conforme sua estrutura
+export { addProduct, cart, clearCart, deleteProductById, removeProduct } // ajuste o caminho conforme sua estrutura
 
 // ** Funções de utilidade **
 // Cart Selector to get the current shoes on cart

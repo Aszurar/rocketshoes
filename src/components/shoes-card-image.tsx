@@ -22,7 +22,7 @@ export function ShoesCardImage({
   const imageSize = sizes[size]
   return (
     <div
-      className={`min-h-[${imageSize}px] min-w-[${imageSize}px] overflow-hidden rounded-full`}
+      className={`min-h-[${imageSize}px] min-w-[${imageSize}px] flex flex-shrink-0 overflow-hidden rounded-full`}
     >
       <img
         src={image}

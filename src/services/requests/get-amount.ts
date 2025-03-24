@@ -1,3 +1,5 @@
+import { IDataResponse } from '@/data/shoes'
+
 import { api } from '../api'
 
 export type GetAmountResponse = {
@@ -6,7 +8,11 @@ export type GetAmountResponse = {
 }
 
 export async function getAmount(id: number) {
-  const response = await api.get<GetAmountResponse>(`/stock/${id}`)
+  const response = await api.get<IDataResponse>('')
 
-  return response.data
+  const { stock: stockList } = response.data
+
+  const stock = stockList.find((stockItem) => stockItem.id === id)
+
+  return stock as GetAmountResponse
 }

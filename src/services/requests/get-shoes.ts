@@ -1,9 +1,9 @@
-import { IShoes } from '@/data/shoes'
+import { IDataResponse } from '@/data/shoes'
 
 import { api } from '../api'
 
 export async function getShoes() {
-  const response = await api.get<IShoes[]>('/products')
+  const response = await api.get<IDataResponse>('')
 
-  return response.data
+  return response.data.products
 }

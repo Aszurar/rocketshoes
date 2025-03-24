@@ -20,4 +20,9 @@ const STOCK_AMOUNT_DEFAULT: GetAmountResponse = {
   amount: 0,
 } as const
 
+export interface IDataResponse {
+  products: IProduct[]
+  stock: IStock[]
+}
+
 export { STOCK_AMOUNT_DEFAULT }

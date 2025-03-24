@@ -66,7 +66,7 @@ export function DataTableColumnHeaderActions<TData, TValue>({
             className="gap-1"
           >
             <ArrowUp className="h-4 w-4 text-muted-foreground/70" />
-            Asc
+            Crescente
           </DropdownMenuItem>
           <DropdownMenuItem
             data-select={isDescSorted}
@@ -74,7 +74,7 @@ export function DataTableColumnHeaderActions<TData, TValue>({
             className="gap-1"
           >
             <ArrowDown className="h-4 w-4 text-muted-foreground/70" />
-            Desc
+            Decrescente
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem
@@ -83,7 +83,7 @@ export function DataTableColumnHeaderActions<TData, TValue>({
             className="gap-1"
           >
             <ChevronsUpDown className="h-4 w-4 text-muted-foreground/70" />
-            No sort
+            Nenhuma
           </DropdownMenuItem>
 
           <DropdownMenuSeparator />
@@ -92,7 +92,7 @@ export function DataTableColumnHeaderActions<TData, TValue>({
             className="gap-1"
           >
             <EyeOff className="h-4 w-4 text-muted-foreground/70" />
-            Hide
+            Ocultar
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

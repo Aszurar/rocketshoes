@@ -3,7 +3,7 @@
 **OBS**: Essa é a branch main, **ela usa o com o localStorage para consumir e persistir os dados e é essa versão que foi publicada no Netlify**. Mas temos outra branch que se chama  **feature/json-server** em que simulamos uma **API REST com json-server e consumimos os dados a partir desse servidor**, para acessá-la, vá na branch **[feature/json-server](https://github.com/Aszurar/coffeeDelivery/tree/feature/json-server)**.
 
 <div align="center">
-    <img src="https://i.imgur.com/40JzYfh.png" width="1000" alt="Banner">
+    <img src="" width="1000" alt="Banner">
 </div>
 
 ## RocketShoes
@@ -13,14 +13,13 @@
 - Outro objetivo foi aprender a criar interfaces com **[Chakra UI](https://v2.chakra-ui.com/)** e consumir os dados via com **[React Query](https://tanstack.com/query/latest/docs/framework/react/overview)** e **[axios](https://axios-http.com/ptbr/)**.
 
 - O site foi publicado com CI/CD por meio da plataforma **[Netlify](https://www.netlify.com/)**.
-- Acesse e teste o projeto em: **<https://coffee-delivery-aszurar.netlify.app>**
+- Acesse e teste o projeto em: **<https://rocketshoes-sand.vercel.app>**
 
   <div align="center">
-    <h3><a href="https://coffee-delivery-aszurar.netlify.app">RocketShoes</a></h3>
+    <h3><a href="https://rocketshoes-sand.vercel.app">RocketShoes</a></h3>
 
   
 
-https://github.com/user-attachments/assets/197e8a71-9685-4f71-99f5-fdc97d684bfa
 
 
 
@@ -47,12 +46,12 @@ https://github.com/user-attachments/assets/197e8a71-9685-4f71-99f5-fdc97d684bfa
 ---
 
 <div align="center">
-    <img src="https://i.imgur.com/ZlycM91.gif" width="500" alt="Gif mostrando o projeto">
+    <img src="" width="500" alt="Gif mostrando o projeto">
 </div>
 
 <div align="center" >
 
-**[Vídeo no Youtube](https://www.youtube.com/watch?v=aPFtSG2kzC0)**
+**[Vídeo no Youtube]()**
 
 </div>
 
@@ -71,8 +70,8 @@ https://github.com/user-attachments/assets/197e8a71-9685-4f71-99f5-fdc97d684bfa
 - **Tela inicial**
 
 <div align="center" >
-      <img src="https://i.imgur.com/vzBiuiY.png" width="400" alt="Tela Inicial">_<img src="https://i.imgur.com/nmAysLZ.png" width="400" alt="Tela Inicial">
-      <img src="https://i.imgur.com/Czzqs1d.png" width="400" alt="Tela Inicial">_<img src="https://i.imgur.com/W8gMbsU.png" width="400" alt="Tela Inicial">
+      <img src="" width="400" alt="Tela Inicial">_<img src="" width="400" alt="Tela Inicial">
+      <img src="" width="400" alt="Tela Inicial">_<img src="" width="400" alt="Tela Inicial">
 </div>
 
 ---
@@ -93,7 +92,6 @@ https://github.com/user-attachments/assets/197e8a71-9685-4f71-99f5-fdc97d684bfa
   3. Criação de interfaces com Chakra UI;
   4. Criação de testes unitários com Vitest;
   5. Animação com Framer Motion;
-  6. Preenchimento automático de endereço por de busca via CEP com a API **[BrasilAPI](https://brasilapi.com.br/)**;
   7. Conseguimos adicionar, remover e editar itens no carrinho;
   8. Conseguimos adicionar, remover e editar endereços;
   9. Conseguimos adicionar um pedido já realizado anteriormente ao carrinho;
@@ -108,7 +106,7 @@ https://github.com/user-attachments/assets/197e8a71-9685-4f71-99f5-fdc97d684bfa
 - **Carrinho**
 
 <div align="center" >
-  <img src="https://i.imgur.com/KMeanVV.png" width="400" alt="Tela Inicial">_<img src="https://i.imgur.com/EmKxjQD.png" width="400" alt="Tela Inicial">
+  <img src="" width="400" alt="Tela Inicial">_<img src="" width="400" alt="Tela Inicial">
 </div>
 
 ---
@@ -118,9 +116,9 @@ https://github.com/user-attachments/assets/197e8a71-9685-4f71-99f5-fdc97d684bfa
 - O Design foi disponibilizado pela Rocketseat, e pode ser acessado no link abaixo:
 
 <div align="center">
-  <h3><a href="https://www.figma.com/design/FIDFR5OxDBrvAq22KIOzcZ/Coffee-Delivery-%E2%9C%85?node-id=13024-770&t=bIhOVvJmb952GAIm-0">Coffee Delivery</a></h3>
+  <h3><a href="">RocketShoes</a></h3>
 
-  [![Design](https://i.imgur.com/MBgTKLU.png)](https://www.figma.com/design/FIDFR5OxDBrvAq22KIOzcZ/Coffee-Delivery-%E2%9C%85?node-id=13024-770&t=bIhOVvJmb952GAIm-0)
+  [![Design]()]()
 </div>
 
 ---
@@ -135,8 +133,8 @@ https://github.com/user-attachments/assets/197e8a71-9685-4f71-99f5-fdc97d684bfa
 - **Adição do endereço e método de pagamento**
 
 <div align="center" >
-      <img src="https://i.imgur.com/B3Nn4Wu.png" width="400" alt="Tela de Checkout - tema light">_<img src="https://i.imgur.com/9WjoF7S.png" width="400" alt="Tela de Checkout - tema light - preenchida">
-      <img src="https://i.imgur.com/xKeUTWy.png" width="400" alt="Tela de Checkout - tema dark">_<img src="https://i.imgur.com/nTd5VJR.png" width="400" alt="Tela Inicial">
+      <img src="" width="400" alt="Tela de Checkout - tema light">_<img src="" width="400" alt="Tela de Checkout - tema light - preenchida">
+      <img src="" width="400" alt="Tela de Checkout - tema dark">_<img src="" width="400" alt="Tela Inicial">
 </div>
 
 ---
@@ -166,28 +164,28 @@ https://github.com/user-attachments/assets/197e8a71-9685-4f71-99f5-fdc97d684bfa
 - **Tela de finalização**
 
 <div align="center" >
-      <img src="https://i.imgur.com/cSvJMRz.png" width="400" alt="Tela de finalização - tema claro">_<img src="https://i.imgur.com/eQMExzg.png" width="400" alt="tema escuro">
+      <img src="" width="400" alt="Tela de finalização - tema claro">_<img src="" width="400" alt="tema escuro">
 </div>
 
 ---
 
 ## :truck: Entrega e distribuição continua
 
-**<https://coffee-delivery-aszurar.netlify.app>**
+**<https://rocketshoes-sand.vercel.app>**
 
 - Para a publicação da aplicação foi por meio da plataforma **[Netlify](https://www.netlify.com/)** onde é possível publicar de forma rápida, fácil e simples projetos React que estão hospedados no GitHub, GitLab, dentre outras plataformas de repositório remoto de graça.
 - Com isso, o CI/CD já é aplicado automaticamente por meio dessa plataforma definindo a branch de produção, sempre que houver uma atualização nela, será gerado uma nova versão do projeto e já publicado.
 - Além disso, podemos customizar o próprio endereço do site, adicionar ferramentas dentre outras funcionalidades facilmente.
 
 <div align="center">
-   <img src="https://i.imgur.com/h3vBCtC.png" width="1000" alt="Projeto publicado no Netlify">
+   <img src="" width="1000" alt="Projeto publicado no Netlify">
 </div>
 
 - **Meus Pedidos**
 
 <div align="center" >
-      <img src="https://i.imgur.com/ySTbbQs.png" width="400" alt="Tela de meus pedidos - tema claro">_<img src="https://i.imgur.com/6L1K8Uk.png" width="400" alt="Tela de meus pedidos - tema claro">
-      <img src="https://i.imgur.com/Jcp7EMF.png" width="400" alt="Tela de meus pedidos - tema claro">_<img src="https://i.imgur.com/iC56tCV.png" width="400" alt="Tela de meus pedidos - tema claro">
+      <img src="" width="400" alt="Tela de meus pedidos - tema claro">_<img src="" width="400" alt="Tela de meus pedidos - tema claro">
+      <img src="" width="400" alt="Tela de meus pedidos - tema claro">_<img src="" width="400" alt="Tela de meus pedidos - tema claro">
 </div>
 
 ---
@@ -199,7 +197,7 @@ https://github.com/user-attachments/assets/197e8a71-9685-4f71-99f5-fdc97d684bfa
 - Clonar o projeto:
 
   ```bash
-   git clone https://github.com/Aszurar/coffeeDelivery.git
+   git clone https://github.com/Aszurar/rocketshoes.git
   ```
 
 - É necessário ter o Node.js e um gerenciador de pacotes, como o Yarn, instalados em seu sistema. Se você ainda não os tem, siga estas instruções:

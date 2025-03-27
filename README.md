@@ -172,10 +172,10 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
   23. **[Vitest](https://vitest.dev/)**
   24. **[zod](https://zod.dev/)**
 
-- **Tela de finalização**
+### Tela de finalização
 
 <div align="center" >
-      <img src="" width="400" alt="Tela de finalização - tema claro">_<img src="" width="400" alt="tema escuro">
+      <img src="https://i.imgur.com/YKLmLEb.png" width="400" alt="Tela de finalização - tema claro">_<img src="https://i.imgur.com/kj95g9S.png" width="400" alt="tema escuro">
 </div>
 
 ---
@@ -189,7 +189,7 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
 - Além disso, podemos customizar o próprio endereço do site, adicionar ferramentas dentre outras funcionalidades facilmente.
 
 <div align="center">
-   <img src="" width="1000" alt="Projeto publicado no Netlify">
+   <img src="https://i.imgur.com/tNtK2NE.png" width="1000" alt="Projeto publicado no Vercel">
 </div>
 
 ---

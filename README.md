@@ -72,8 +72,8 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
 
 ### Tela inicial
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 12px;">
-      <img src="https://i.imgur.com/41hyuD3.png" width="400" style="border-radius: 16px;" alt="Tela Inicial no tema claro"><img src="https://i.imgur.com/cCm0T4o.png" width="400" style="border-radius: 16px;" alt="Tela Inicial no tema escuro">
+<div align="center" gap="12">
+      <img src="https://i.imgur.com/41hyuD3.png" width="400" alt="Tela Inicial no tema claro"><img src="https://i.imgur.com/cCm0T4o.png" width="400" alt="Tela Inicial no tema escuro">
 </div>
 
 ---

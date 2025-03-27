@@ -157,20 +157,19 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
   8. **[Lottie Files](https://lottiefiles.com/)**
   9. **[React](https://pt1.br.react.dev/)**
   10. **[React Helmet Async](https://github.com/staylor/react-helmet-async#readme)**
-  11. **[React Hook Form](https://react-hook-form.com/)**
-  12. **[React Router Dom](https://reactrouter.com/web/guides/quick-start)**
-  13. **[React Redux](https://react-redux.js.org/)**
-  14. **[Redux Toolkit](https://redux-toolkit.js.org/)**
-  15. **[React Toastify](https://fkhadra.github.io/react-toastify/introduction)**
-  16. **[TailwindCSS](https://tailwindcss.com/)**
-  17. **[TanStack Query](https://tanstack.com/query/latest)**
-  18. **[TanStack Table](https://tanstack.com/table/latest)**
-  19. **[TanStack Virtual](https://tanstack.com/virtual/latest)**
-  20. **[TypeScript](https://www.typescriptlang.org/)**
-  21. **[Vercel](https://vercel.com/)**
-  22. **[Vite](https://vitejs.dev/)**
-  23. **[Vitest](https://vitest.dev/)**
-  24. **[zod](https://zod.dev/)**
+  11. **[React Router Dom](https://reactrouter.com/web/guides/quick-start)**
+  12. **[React Redux](https://react-redux.js.org/)**
+  13. **[Redux Toolkit](https://redux-toolkit.js.org/)**
+  14. **[React Toastify](https://fkhadra.github.io/react-toastify/introduction)**
+  15. **[TailwindCSS](https://tailwindcss.com/)**
+  16. **[TanStack Query](https://tanstack.com/query/latest)**
+  17. **[TanStack Table](https://tanstack.com/table/latest)**
+  18. **[TanStack Virtual](https://tanstack.com/virtual/latest)**
+  19. **[TypeScript](https://www.typescriptlang.org/)**
+  20. **[Vercel](https://vercel.com/)**
+  21. **[Vite](https://vitejs.dev/)**
+  22. **[Vitest](https://vitest.dev/)**
+  23. **[zod](https://zod.dev/)**
 
 ### Tela de finalização
 

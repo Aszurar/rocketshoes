@@ -1,27 +1,28 @@
-# #11 - React: **<https://rocketshoes-sand.vercel.app>**
+# #11 - React: **<https://rocketshoes-aszurar.vercel.app>**
 
-**OBS**: Essa é a branch main, **ela usa o com o localStorage para consumir e persistir os dados e é essa versão que foi publicada no Netlify**. Mas temos outra branch que se chama  **feature/json-server** em que simulamos uma **API REST com json-server e consumimos os dados a partir desse servidor**, para acessá-la, vá na branch **[feature/json-server](https://github.com/Aszurar/coffeeDelivery/tree/feature/json-server)**.
+**OBS**:
+
+- Branch **[main](https://github.com/Aszurar/rocketshoes/tree/main)**:
+  - Usamos o **JSON-Server** para simular a API e assim consumir os dados a partir do arquivo **server.json**.
+  - Não é a branch usada para o deploy.
+  - Definimos a porta para consumir pela porta 3333, por meio do ```http://localhost:3333``` definido na variável de ambiente **```VITE_API_URL```**.
+- Branch **[feature/no-json-server](https://github.com/Aszurar/rocketshoes/tree/feature/no-json-server)**:
+  - Consumimos diretamente o arquivo **server.json** passando o endereço dele na variável de ambiente **```VITE_API_URL```**
+  - Com isso, usamos essa branch para o **deploy** já que estamos o server.json diretamente.
+  - Aplicamos um delay no axios para simular a latência de uma API real por meio da variável ambiente **```VITE_ENABLE_API_DELAY```**.
 
 <div align="center">
-    <img src="" width="1000" alt="Banner">
+    <img src="https://i.imgur.com/qjBRiVS.png" width="1000" alt="Banner">
 </div>
 
 ## RocketShoes
 
-- O projeto tem o intuito de simular um site de entrega de café, onde podemos escolher o tipo de café, a quantidade, adicionar no carrinho, adicionar e selecionar endereços e buscá-lo via CEP usando a api **brasilapi**. Além disso, podemos ver o total da compra e finalizar o pedido.
-
-- Outro objetivo foi aprender a criar interfaces com **[Chakra UI](https://v2.chakra-ui.com/)** e consumir os dados via com **[React Query](https://tanstack.com/query/latest/docs/framework/react/overview)** e **[axios](https://axios-http.com/ptbr/)**.
-
-- O site foi publicado com CI/CD por meio da plataforma **[Netlify](https://www.netlify.com/)**.
-- Acesse e teste o projeto em: **<https://rocketshoes-sand.vercel.app>**
+1. O projeto **RocketShoes** que simula um e-commerce de calçados, onde podemos **adicionar**, **remover** e **editar** itens no carrinho, além de **finalizar** a compra.
+2. O site foi publicado com CI/CD por meio da plataforma **[Vercel](https://vercel.com/)**.
+3. Acesse e teste o projeto em: **<https://rocketshoes-aszurar.vercel.app>**
 
   <div align="center">
-    <h3><a href="https://rocketshoes-sand.vercel.app">RocketShoes</a></h3>
-
-  
-
-
-
+    <h3><a href="https://rocketshoes-aszurar.vercel.app">RocketShoes</a></h3>
 
   </div>
 
@@ -59,19 +60,20 @@
 
 ## :information_source: Sobre
 
-- O projeto tem o intuito de simular um marketplace de café, onde podemos escolher o tipo de café, a quantidade, adicionar no carrinho, adicionar e selecionar endereços e buscá-lo via CEP usando a api **brasilapi**. Além disso, podemos ver o total da compra e finalizar o pedido.
+O projeto tem o intuito de simular um marketplace de calçados, onde podemos escolher entre vários tipos de calçados, a quantidade, adicionar ou remover do carrinho. Além disso, podemos ver o total do preço, quantidade e finalizar a compra.
 
-- O objetivo desse projeto é praticar o **gerenciamento e manipulação de Estados** via **[Zustand](https://zustand-demo.pmnd.rs/)**, além de construir uma estrutura em que criamos 4 store simulando o que seriam 4 slices de um Redux, **cada um responsável por um recurso e suas funções de manipulação**, cada um com seu hook de seletor próprio. Assim conseguimos usar cada Estado em seu componente sem afetar outro recurso ou provocar a renderização desnecessária de outros componentes.
+- O objetivo desse projeto é praticar o **gerenciamento e manipulação de Estados** via **[Redux](https://redux.js.org/)** com o **[Redux Toolkit](https://redux-toolkit.js.org/)** e **[React Redux](https://react-redux.js.org/)**.
+- Criamos 1 slice para o carrinho onde temos diversas ações que envolvem adicionar e remover itens do carrinho e persistir os dados no localStorage, além de calcular o total do preço dos produtos no carrinho.
+- Além disso, abordamos o **[TanStack Query - React Query](https://tanstack.com/query/latest)** para o consumo de dados e o **[TanStack - Table](https://tanstack.com/table/latest)** para a criação da tabela produtos no carrinho.
 
 - A acessibilidade foi levada em consideração, com o uso da lib **[axe-core](https://www.npmjs.com/package/@axe-core/react)** para testes e correções, assim como leitor de tela ChromeVox.
 
-- Esse projeto é derivado da formação React da **[Rocketseat](https://www.rocketseat.com.br/)**, sendo o 2º desafio dessa trilha.
-  
-- **Tela inicial**
+- O projeto é um desafio da trilha de **React** da **[Rocketseat](https://www.rocketseat.com.br/)**, sendo o 3º desafio dessa trilha.
 
-<div align="center" >
-      <img src="" width="400" alt="Tela Inicial">_<img src="" width="400" alt="Tela Inicial">
-      <img src="" width="400" alt="Tela Inicial">_<img src="" width="400" alt="Tela Inicial">
+### Tela inicial
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 12px;">
+      <img src="https://i.imgur.com/41hyuD3.png" width="400" style="border-radius: 16px;"alt="Tela Inicial no tema claro"><img src="https://i.imgur.com/cCm0T4o.png" width="400" style="border-radius: 16px;" alt="Tela Inicial no tema escuro">
 </div>
 
 ---
@@ -80,7 +82,7 @@
 
 - O objetivo do projeto é aprender a usar o Chakra UI para criar interfaces, praticar o uso do **Zustand** para o **gerenciamento e manipulação do Estado** e praticamos o uso do **Vitest** para **testes unitários** nas funções de manipulação de dados. Além disso, praticamos o consumo de dados com **React Query** e **axios**.
 
-### Funcionalidades:
+### Funcionalidades
 
   1. Gerenciamento e manipulação de Estados com Zustand;
      - Criação de 4 stores simulando slices de um Redux:
@@ -216,7 +218,7 @@
 - Caso tudo tenha sido instalado com sucesso, basta executar na raiz do projeto:
 - Caso esteja na branch **```feature/json-server```**:
   - Terminal 1: Executando front-end
-    
+
     ```bash
       pnpm dev
     ```

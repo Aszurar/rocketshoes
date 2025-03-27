@@ -28,7 +28,7 @@
 
 <div align="center">
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b020bc1b-dd79-4557-b93d-49b50af1e908/deploy-status)](https://app.netlify.com/sites/coffee-delivery-aszurar/deploys) [![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/) [![Vitest](https://img.shields.io/badge/-Vitest-739b1b?style=for-the-badge&logo=vitest&logoColor=white&link=https://www.typescriptlang.org/)](https://vitest.dev/) [![React](https://img.shields.io/badge/-React-%2320232a.svg?style=for-the-badge&logo=react&link=https://react.dev)](https://react.dev/) [![Chakra UI](https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white)](https://v2.chakra-ui.com/) [![ZUSTAND](https://img.shields.io/badge/-Zustand-453f39?style=for-the-badge&logo=zustand&logoColor=white)](https://tanstack.com/query/latest/docs/framework/react/overview)  [![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white)](https://tanstack.com/query/latest/docs/framework/react/overview) [![AXIOS](https://img.shields.io/badge/-AXIOS-5a29e4?style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com/ptbr/)  [![TypeScript](https://img.shields.io/badge/-TypeScript-%23007ACC?style=for-the-badge&logo=typescript&logoColor=white&link=https://www.typescriptlang.org/)](https://www.typescriptlang.org/) [![JavaScript](https://img.shields.io/badge/-JavaScript-%23323330.svg?style=for-the-badge&logo=javascript&link=https://www.javascript.com/)](https://www.javascript.com/) [![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&link=https://developer.mozilla.org/pt-BR/docs/Web/HTML)](https://developer.mozilla.org/pt-BR/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&link=https://www.w3schools.com/css/)](https://www.w3schools.com/css/) [![PNPM](https://img.shields.io/badge/pnpm-%234a4a4a.svg?style=for-the-badge&logo=pnpm&logoColor=f69220)](https://pnpm.io/pt/)
+[![GitHub deployments](https://img.shields.io/github/deployments/Aszurar/rocketshoes/production?logo=vercel&logoColor=white&label=Vercel&labelColor=black)](https://vercel.com/aszurars-projects/rocketshoes) [![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/) [![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)](https://www.cypress.io/) [![Vitest](https://img.shields.io/badge/-Vitest-739b1b?style=for-the-badge&logo=vitest&logoColor=white&link=https://www.typescriptlang.org/)](https://vitest.dev/) [![React](https://img.shields.io/badge/-React-%2320232a.svg?style=for-the-badge&logo=react&link=https://react.dev)](https://react.dev/) [![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) [![Framer](https://img.shields.io/badge/Framer-black?style=for-the-badge&logo=framer&logoColor=blue)](https://motion.dev/) [![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)](https://redux.js.org/)  [![TanStack Query](https://img.shields.io/badge/-TanStack_React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white)](https://tanstack.com/query/latest) [![TanStack Virtual](https://img.shields.io/badge/-TanStack_React%20Virtual-a854f7?style=for-the-badge&logo=react%20query&logoColor=white)](https://tanstack.com/virtual/latest) [![TanStack Table](https://img.shields.io/badge/-TanStack_React%20Table-3c82f6?style=for-the-badge&logo=react%20query&logoColor=white)](https://tanstack.com/table/latest) [![AXIOS](https://img.shields.io/badge/-AXIOS-5a29e4?style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com/ptbr/)  [![TypeScript](https://img.shields.io/badge/-TypeScript-%23007ACC?style=for-the-badge&logo=typescript&logoColor=white&link=https://www.typescriptlang.org/)](https://www.typescriptlang.org/) [![JavaScript](https://img.shields.io/badge/-JavaScript-%23323330.svg?style=for-the-badge&logo=javascript&link=https://www.javascript.com/)](https://www.javascript.com/) [![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&link=https://developer.mozilla.org/pt-BR/docs/Web/HTML)](https://developer.mozilla.org/pt-BR/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&link=https://www.w3schools.com/css/)](https://www.w3schools.com/css/) [![PNPM](https://img.shields.io/badge/pnpm-%234a4a4a.svg?style=for-the-badge&logo=pnpm&logoColor=f69220)](https://pnpm.io/pt/)
 </div>
 
 <div align="center">
@@ -80,42 +80,44 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
 
 ## :interrobang: Motivo
 
-- O objetivo do projeto é aprender a usar o Chakra UI para criar interfaces, praticar o uso do **Zustand** para o **gerenciamento e manipulação do Estado** e praticamos o uso do **Vitest** para **testes unitários** nas funções de manipulação de dados. Além disso, praticamos o consumo de dados com **React Query** e **axios**.
+- O objetivo do projeto é:
 
-### Funcionalidades
-
-  1. Gerenciamento e manipulação de Estados com Zustand;
-     - Criação de 4 stores simulando slices de um Redux:
-       - Um para o carrinho;
-       - Um para os pedidos;
-       - Um para os endereços;
-       - Um para o de pagamentos;
-  2. Consumo de dados com React Query e axios melhorando o cache e a performance;
-  3. Criação de interfaces com Chakra UI;
-  4. Criação de testes unitários com Vitest;
-  5. Animação com Framer Motion;
-  7. Conseguimos adicionar, remover e editar itens no carrinho;
-  8. Conseguimos adicionar, remover e editar endereços;
-  9. Conseguimos adicionar um pedido já realizado anteriormente ao carrinho;
-  10. Buscamos endereços via CEP;
+  1. Praticar o uso do **Redux** para o **gerenciamento e manipulação do Estado** do carrinho
+      - Usamos o **[Redux Toolkit](https://redux-toolkit.js.org/)** em conjunto com o **[React Redux](https://react-redux.js.org/)** implementação do reducer e actions do carrinho.
+  2. Usamos o **[TanStack Query](https://tanstack.com/query/latest)** para o consumo de dados e otimização com **gerenciamento de cache** em conjunto com **[axios](https://axios-http.com/ptbr/docs/intro)**.
+  3. Usamos o  **[TanStack - Table](https://tanstack.com/table/latest)** para a criação da tabela produtos no carrinho com **ordenação**, **busca** e **paginação** dos itens e uma manipulação mais robusta e componente agnóstico, que pode ser usado em qualquer projeto e tabela.
+  4. Usamos o **[TanStack - React Virtual](https://tanstack.com/virtual/latest)** para **otimização** de listagens e criamos 2 componentes agnósticos de **virtualização** de listagens:
+      1. **```<VirtualizedGridList/>```** - Para renderização listagens organizadas em grid, **+ de 1 coluna**.
+      2. **```<VirtualizedList/>```** - Para renderização listagens organizadas em flex-col, **1 coluna**.
+  5. Usamos o **[React Router Dom](https://reactrouter.com/home)** para a navegação entre as páginas.
+  6. Usamos do **[Vitest](https://vitest.dev/)** para **testes unitários** nas funções de **manipulação** do Estado global no Redux.
+  7. Usarmos o **[Cypress](https://www.cypress.io/)** para realizar **testes(E2E)** e automatizá-los pelo **[GitHub Actions](https://github.com/features/actions)**.
+  8. Usamos o **[framer-motion](https://motion.dev/)** para implementação de animações de layouts básicas.
+  9. Criamos a interface com **[shadcn/ui](https://ui.shadcn.com/)** e **[tailwindcss](https://tailwindcss.com/docs/installation/using-vite)** e usamos **[tailwind-merge](https://github.com/dcastil/tailwind-merge)** em conjunto com  **[clsx](https://github.com/lukeed/clsx)** e **[tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)**.
+  10. Melhoramos o SEO do projeto com **[React-Helmet-Async](https://github.com/staylor/react-helmet-async#readme)**
+  11. Melhoras a acessibilidade usando o **[@axe-core/react](https://github.com/dequelabs/axe-core-npm?tab=readme-ov-file#readme)** para revisar os elementos e componentes com as diretrizes de acessibilidade estabelecidas no **[WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)** estabelecidas pelo **[W3C](https://www.w3.org/)**.
 
 ### O que aprendi de novo?
 
-  1. Criação de interfaces com Chakra UI;
-  2. Animações com Framer Motion
-  3. Simluação de Slices com Zustand
+  1. Criação de **tabelas** com **[TanStack - Table](https://tanstack.com/table/latest)**
+  2. Criação de **listagens virtuais** com **[TanStack - React Virtual](https://tanstack.com/virtual/latest)**
+  3. Animações de **saída de layout** com **[framer-motion](https://motion.dev/)**
 
-- **Carrinho**
+### Carrinho
 
-<div align="center" >
-  <img src="" width="400" alt="Tela Inicial">_<img src="" width="400" alt="Tela Inicial">
+<div align="center">
+  <img src="https://i.imgur.com/nevJUNG.png" width="400" alt="Carrinho cheio no modo claro">_<img src="https://i.imgur.com/oFewZBe.png" width="400" alt="Carrinho cheio no modo escuro">
+</div>
+
+<div align="center">
+    <img src="https://i.imgur.com/Ke0GbAd.png" width="400" alt="Carrinho vazio no modo claro">_<img src="https://i.imgur.com/QGmbiNk.png" width="400" alt="Carrinho vazio no modo escuro">
 </div>
 
 ---
 
 ## :art: Design
 
-- O Design foi disponibilizado pela Rocketseat, e pode ser acessado no link abaixo:
+- Não temos um figma do design em si, mas é do desafio Rocketshoes da trilha React da Rocketseat
 
 <div align="center">
   <h3><a href="">RocketShoes</a></h3>
@@ -132,11 +134,11 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
   3. Vite
   4. PNPM
 
-- **Adição do endereço e método de pagamento**
+### Checkout
 
 <div align="center" >
-      <img src="" width="400" alt="Tela de Checkout - tema light">_<img src="" width="400" alt="Tela de Checkout - tema light - preenchida">
-      <img src="" width="400" alt="Tela de Checkout - tema dark">_<img src="" width="400" alt="Tela Inicial">
+      <img src="" width="400" alt="Tela de Checkout - tema claro">_<img src="" width="400" alt="Tela de Checkout - tema claro - preenchida">
+      <img src="" width="400" alt="Tela de Checkout - tema escuro">_<img src="" width="400" alt="Tela de Checkout - tema escuro">
 </div>
 
 ---
@@ -147,21 +149,28 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
 
   1. **[axios](https://axios-http.com/ptbr/docs/intro)**
   2. **[axe-core/react](https://www.npmjs.com/package/@axe-core/react)**
-  3. **[Chakra UI](https://v2.chakra-ui.com/)**
-  4. **[Framer Motion](https://www.framer.com/motion/)**
-  5. **[JavaScript](https://developer.mozilla.org/pt1.BR/docs/Web/JavaScript)**
-  6. **[Json Server](https://github.com/typicode/json-server)**
-  7. **[Netlify](https://www.netlify.com/)**
-  8. **[NodeJS](https://nodejs.org/en/)**
-  9. **[Phosphor Icons](https://phosphoricons.com/)**
-  10. **[React](https://pt1.br.react.dev/)**
+  3. **[Framer Motion](https://www.framer.com/motion/)**
+  4. **[JavaScript](https://developer.mozilla.org/pt1.BR/docs/Web/JavaScript)**
+  5. **[Json Server](https://github.com/typicode/json-server)**
+  6. **[NodeJS](https://nodejs.org/en/)**
+  7. **[Lucide Icons](https://phosphoricons.com/)**
+  8. **[Lottie Files](https://lottiefiles.com/)**
+  9. **[React](https://pt1.br.react.dev/)**
+  10. **[React Helmet Async](https://github.com/staylor/react-helmet-async#readme)**
   11. **[React Hook Form](https://react-hook-form.com/)**
-  12. **[Sonner](https://sonner.emilkowal.ski/)**
-  13. **[PNPM](https://pnpm.io/pt/)**
-  14. **[TypeScript](https://www.typescriptlang.org/)**
-  15. **[Vite](https://vitejs.dev/)**
-  16. **[Vitest](https://vitest.dev/)**
-  17. **[zod](https://zod.dev/)**
+  12. **[React Router Dom](https://reactrouter.com/web/guides/quick-start)**
+  13. **[React Redux](https://react-redux.js.org/)**
+  14. **[Redux Toolkit](https://redux-toolkit.js.org/)**
+  15. **[React Toastify](https://fkhadra.github.io/react-toastify/introduction)**
+  16. **[TailwindCSS](https://tailwindcss.com/)**
+  17. **[TanStack Query](https://tanstack.com/query/latest)**
+  18. **[TanStack Table](https://tanstack.com/table/latest)**
+  19. **[TanStack Virtual](https://tanstack.com/virtual/latest)**
+  20. **[TypeScript](https://www.typescriptlang.org/)**
+  21. **[Vercel](https://vercel.com/)**
+  22. **[Vite](https://vitejs.dev/)**
+  23. **[Vitest](https://vitest.dev/)**
+  24. **[zod](https://zod.dev/)**
 
 - **Tela de finalização**
 
@@ -175,19 +184,12 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
 
 **<https://rocketshoes-sand.vercel.app>**
 
-- Para a publicação da aplicação foi por meio da plataforma **[Netlify](https://www.netlify.com/)** onde é possível publicar de forma rápida, fácil e simples projetos React que estão hospedados no GitHub, GitLab, dentre outras plataformas de repositório remoto de graça.
-- Com isso, o CI/CD já é aplicado automaticamente por meio dessa plataforma definindo a branch de produção, sempre que houver uma atualização nela, será gerado uma nova versão do projeto e já publicado.
+- Para a publicação da aplicação foi por meio da plataforma **[Vercel](https://vercel.com/)** onde é possível publicar de forma rápida, fácil e simples projetos React e Next que estão hospedados no GitHub, GitLab, dentre outras plataformas de repositório remoto de graça.
+- Com isso, o CI/CD já é aplicado automaticamente por meio dessa plataforma definindo a branch de produção(**[feature/no-json-server](https://github.com/Aszurar/rocketshoes/tree/feature/no-json-server)**), sempre que houver uma atualização nela, será gerado uma nova versão do projeto e já publicado.
 - Além disso, podemos customizar o próprio endereço do site, adicionar ferramentas dentre outras funcionalidades facilmente.
 
 <div align="center">
    <img src="" width="1000" alt="Projeto publicado no Netlify">
-</div>
-
-- **Meus Pedidos**
-
-<div align="center" >
-      <img src="" width="400" alt="Tela de meus pedidos - tema claro">_<img src="" width="400" alt="Tela de meus pedidos - tema claro">
-      <img src="" width="400" alt="Tela de meus pedidos - tema claro">_<img src="" width="400" alt="Tela de meus pedidos - tema claro">
 </div>
 
 ---
@@ -213,10 +215,17 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
       pnpm i
     ```
 
+- É necessário definir as variáveis de ambiente:
+  
+  ```bash
+      VITE_API_URL=
+      VITE_ENABLE_API_DELAY=
+  ```
+
 ### Execução
 
 - Caso tudo tenha sido instalado com sucesso, basta executar na raiz do projeto:
-- Caso esteja na branch **```feature/json-server```**:
+- Caso esteja na branch **[main](https://github.com/Aszurar/rocketshoes/tree/main)**
   - Terminal 1: Executando front-end
 
     ```bash
@@ -229,7 +238,7 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
       pnpm dev:server
     ```
 
-- Caso esteja na branch **```main```**:
+- Caso esteja na branch **[feature/no-json-server](https://github.com/Aszurar/rocketshoes/tree/feature/no-json-server)**:
 
     ```bash
       pnpm dev

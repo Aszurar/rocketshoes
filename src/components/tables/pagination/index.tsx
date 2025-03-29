@@ -29,15 +29,29 @@ export function DataTablePagination<TData>({
   const tablePageIndex = table.getState().pagination.pageIndex
   const tablePageCount = table.getPageCount()
 
+  const totalItems = table.getFilteredRowModel().rows.length
+
   const hasPages = tablePageCount > 1
 
   const currentPage = tablePageIndex + 1
 
   return (
     <div className="flex w-full flex-col items-center space-x-6 px-2 sm:relative sm:flex-row sm:justify-between lg:space-x-8">
-      <div className="flex w-full items-center justify-between space-x-1">
-        <div className="flex items-center space-x-2">
-          <p className="text-sm font-medium">Itens por página</p>
+      <span className="flex w-fit text-sm text-muted-foreground sm:min-w-fit">
+        Total de <strong className="mx-0.5 font-bold">{totalItems}</strong>{' '}
+        item(s)
+      </span>
+      <div className="flex w-fit items-center justify-between space-x-1">
+        {hasPages && (
+          <div className="flex w-fit items-center justify-center text-sm font-medium sm:absolute sm:left-1/2 sm:-translate-x-1/2 sm:transform">
+            Página {currentPage} de {tablePageCount}
+          </div>
+        )}
+      </div>
+
+      <div className="flex items-center space-x-2">
+        <div className="flex w-fit min-w-fit items-center space-x-2 sm:min-w-fit">
+          <p className="line-clamp-1 text-sm font-medium">Itens por página</p>
           <Select
             value={`${tablePageSize}`}
             onValueChange={(value) => {
@@ -56,15 +70,6 @@ export function DataTablePagination<TData>({
             </SelectContent>
           </Select>
         </div>
-
-        {hasPages && (
-          <div className="flex w-[100px] items-center justify-center text-sm font-medium sm:absolute sm:left-1/2 sm:-translate-x-1/2 sm:transform">
-            Página {currentPage} de {tablePageCount}
-          </div>
-        )}
-      </div>
-
-      <div className="flex items-center space-x-2">
         <Button
           variant="outline"
           className="hidden h-8 w-8 p-0 lg:flex"

@@ -49,7 +49,7 @@ export function DataTable<TData, TValue>({
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
-    autoResetPageIndex: true,
+    autoResetPageIndex: false,
     initialState: {
       pagination: {
         pageIndex: 0,

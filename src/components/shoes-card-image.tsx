@@ -30,8 +30,8 @@ export function ShoesCardImage({
         width={imageSize}
         height={imageSize}
         className={cn(
-          'rounded-full border-2 border-primary object-cover p-1',
-          `h-[${imageSize}px] w-[${imageSize}px]`,
+          'rounded-full border-2 border-primary object-contain p-1',
+          `min-h-[${imageSize}px] min-w-[${imageSize}px] flex flex-shrink-0`,
         )}
       />
     </div>

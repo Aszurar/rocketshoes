@@ -12,7 +12,7 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort'
 
 export default tseslint.config(
   // Ignorar arquivos ou diretórios
-  { ignores: ['dist', 'node_modules']},
+  { ignores: ['dist', 'node_modules', 'cypress.config.cjs', 'cypress/e2e/**' ] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],

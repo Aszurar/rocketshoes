@@ -11,7 +11,10 @@
     "lint:fix": "eslint .  --report-unused-disable-directives --max-warnings 0 --fix",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "cypress:open": "cypress open --config-file cypress.config.cjs",
+    "cypress:run": "cypress run --config-file cypress.config.cjs",
+    "test:e2e": "start-server-and-test dev http://localhost:5173 cypress:run"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
@@ -55,6 +58,7 @@
     "@typescript-eslint/parser": "^8.25.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
+    "cypress": "^14.2.1",
     "eslint": "^9.21.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.2.3",

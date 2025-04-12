@@ -121,6 +121,7 @@ export function VirtualizedList<T>({
         style={{
           height: `${listTotalHight}px`,
         }}
+        data-testid="virtualized-list"
       >
         {itemsVirtualized.map((virtualItem) => {
           return (

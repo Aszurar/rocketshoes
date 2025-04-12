@@ -173,6 +173,7 @@ export function ShoesCard({
                     size="2xs"
                     type="button"
                     variant="destructive"
+                    data-testid={`remove-item-card-${shoes.id}`}
                     className="self-center"
                     onClick={handleRemoveProductOnCart}
                     aria-label="Remover do carrinho de compras"

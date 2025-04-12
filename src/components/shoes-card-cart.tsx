@@ -1,5 +1,5 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { memo } from 'react'
+import { HTMLAttributes, memo } from 'react'
 
 import { IProduct } from '@/data/shoes'
 import { useStockStatus } from '@/hooks/useStockStatus'
@@ -10,11 +10,14 @@ import { ShoesCardImage } from './shoes-card-image'
 import { ShoesCounter } from './shoes-counter'
 import { Card, CardFooter, CardHeader, CardTitle } from './ui/card'
 
-type ShoesCardCartProps = {
+type ShoesCardCartProps = HTMLAttributes<HTMLDivElement> & {
   shoes: IProduct
 }
 
-export function ShoesCardCart({ shoes }: Readonly<ShoesCardCartProps>) {
+export function ShoesCardCart({
+  shoes,
+  ...rest
+}: Readonly<ShoesCardCartProps>) {
   const [parent] = useAutoAnimate()
   const priceFormatted = monetaryValueFormatter(shoes.price)
 
@@ -24,7 +27,11 @@ export function ShoesCardCart({ shoes }: Readonly<ShoesCardCartProps>) {
   })
 
   return (
-    <Card className="relative flex h-27.5 w-77.5 items-center justify-between sm:w-[420px]">
+    <Card
+      className="relative flex h-27.5 w-77.5 items-center justify-between sm:w-[420px]"
+      {...rest}
+      data-testid={`shoes-card-cart`}
+    >
       <CardHeader className="flex flex-row items-center justify-center gap-2 p-3 pr-1">
         <ShoesCardImage image={shoes.image} title={shoes.title} size="sm" />
         <div ref={parent} className="space-y-1">
@@ -35,7 +42,9 @@ export function ShoesCardCart({ shoes }: Readonly<ShoesCardCartProps>) {
         </div>
       </CardHeader>
       <CardFooter ref={parent} className="flex min-w-fit flex-col gap-1 p-1">
-        <p className="text-center text-sm font-semibold">{priceFormatted}</p>
+        <p className="text-center text-sm font-semibold" data-testid="price">
+          {priceFormatted}
+        </p>
         <ShoesCounter shoesOnCart={shoes} isDeleteButtonVisible />
       </CardFooter>
     </Card>

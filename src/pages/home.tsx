@@ -11,9 +11,6 @@ import { IShoes } from '@/data/shoes'
 import { getShoes } from '@/services/requests/get-shoes'
 import { MESSAGES } from '@/utils/messages'
 
-// TODO
-// [ ] - Acessibilidade
-
 export function Home() {
   const {
     data: shoes,
@@ -38,6 +35,7 @@ export function Home() {
         key={`shoes-${shoesItem.id}`}
         shoes={shoesItem}
         aspectRatio="portrait"
+        data-testid={`shoes-card-${shoesItem.id}`}
       />
     )
   }, [])

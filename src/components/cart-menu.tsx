@@ -76,24 +76,41 @@ export default function CartMenu() {
   const emptyCardComponent = emptyCard()
 
   const renderShoesCart = useCallback((shoes: IProduct) => {
-    return <ShoesCardCartMemoized key={shoes.id} shoes={shoes} />
+    return (
+      <ShoesCardCartMemoized
+        key={shoes.id}
+        shoes={shoes}
+        data-testid={`card-cart-${shoes.id}`}
+      />
+    )
   }, [])
 
   return (
     <Sheet open={isCartMenuOpen} onOpenChange={handleToggleCartMenu}>
-      <NotificationBadge content={totalItems}>
+      <NotificationBadge text={totalItems} data-testid="notification-badge">
         <Tooltip asChild content="Abrir o carrinho">
           <SheetTrigger asChild>
-            <Button size="sm" type="button" aria-label="Abrir carrinho">
+            <Button
+              size="sm"
+              type="button"
+              aria-label="Abrir carrinho"
+              data-testid="open-cart-button"
+            >
               <ShoppingCart className="h-5 w-5 max-w-sm" />
             </Button>
           </SheetTrigger>
         </Tooltip>
       </NotificationBadge>
 
-      <SheetContent className="w-full max-w-full overflow-auto sm:max-w-[490px]">
+      <SheetContent
+        className="w-full max-w-full overflow-auto sm:max-w-[490px]"
+        data-testid="cart-menu"
+      >
         <SheetHeader>
-          <SheetTitle>Produtos selecionados</SheetTitle>
+          <SheetTitle className="items-center">
+            Produtos selecionados{' '}
+            <strong className="font-bold text-primary">{totalItems}</strong>
+          </SheetTitle>
         </SheetHeader>
 
         <SheetDescription className="text-center sm:text-start">
@@ -118,7 +135,7 @@ export default function CartMenu() {
           >
             <div className="flex justify-between gap-3 text-sm">
               <h2 className="font-medium">Total de itens</h2>
-              <span>{totalPriceFormatted}</span>
+              <span data-testid="total-price">{totalPriceFormatted}</span>
             </div>
 
             <div className="flex justify-between gap-3 text-sm text-muted-foreground">

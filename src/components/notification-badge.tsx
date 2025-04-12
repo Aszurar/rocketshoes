@@ -1,20 +1,20 @@
-import { ReactNode } from 'react'
+import { HTMLAttributes } from 'react'
 
-type NotificationBadgeProps = {
-  children: ReactNode
-  content: string | number
+type NotificationBadgeProps = HTMLAttributes<HTMLDivElement> & {
+  text: number
 }
 export function NotificationBadge({
+  text,
   children,
-  content,
+  ...rest
 }: Readonly<NotificationBadgeProps>) {
-  if (!content) return <>{children}</>
+  if (!text) return <>{children}</>
 
   return (
-    <div className="relative">
+    <div className="relative" {...rest}>
       <span className="absolute -right-2 -top-2 flex h-5 w-5 animate-ping rounded-full bg-primary opacity-75" />
       <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs font-bold text-background">
-        {content}
+        {text}
       </span>
       {children}
     </div>

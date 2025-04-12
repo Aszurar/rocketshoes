@@ -68,7 +68,7 @@ export function ShoesCounter({
   }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center" data-testid="shoes-counter">
       <Button
         type="button"
         size="xs"
@@ -78,6 +78,7 @@ export function ShoesCounter({
         onClick={handleAddProductOnCart}
         aria-label={buttonLabelTitle}
         title={buttonLabelTitle}
+        data-testid="add-product"
       >
         <PlusCircle className="h-4 w-4" />
       </Button>
@@ -86,6 +87,7 @@ export function ShoesCounter({
         value={shoesOnCart.amount}
         className="h-8 max-w-11 px-2 py-1 text-center"
         disabled={!canAddMoreInCart}
+        data-testid="input-amount"
       />
       <Button
         type="button"
@@ -95,6 +97,7 @@ export function ShoesCounter({
         onClick={handleRemoveProductOnCart}
         aria-label={LABELS.CART.REMOVE}
         title={LABELS.CART.REMOVE}
+        data-testid="remove-product"
       >
         <MinusCircle className="h-4 w-4" />
       </Button>

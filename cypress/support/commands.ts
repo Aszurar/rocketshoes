@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-/// <reference types="./commands.d.ts" />
+/// <reference types="../../src/@types/commands.d.ts" />
 
 import { formatPrice, formatTextToInt } from '../e2e/utils'
 

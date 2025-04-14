@@ -30,6 +30,7 @@ export function ShoesCardCart({
     <Card
       className="relative flex h-27.5 w-77.5 items-center justify-between sm:w-[420px]"
       {...rest}
+      data-testid="shoes-card-cart"
     >
       <CardHeader className="flex flex-row items-center justify-center gap-2 p-3 pr-1">
         <ShoesCardImage image={shoes.image} title={shoes.title} size="sm" />

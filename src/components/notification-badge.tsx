@@ -11,7 +11,7 @@ export function NotificationBadge({
   if (!text) return <>{children}</>
 
   return (
-    <div className="relative" {...rest}>
+    <div className="relative" {...rest} data-testid="notification-badge">
       <span className="absolute -right-2 -top-2 flex h-5 w-5 animate-ping rounded-full bg-primary opacity-75" />
       <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs font-bold text-background">
         {text}

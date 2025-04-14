@@ -2,7 +2,7 @@ import { formatPrice, formatTextToInt } from "./utils"
 
 describe('Add product', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:5173/')
+    cy.visit('/')
   })
 
 

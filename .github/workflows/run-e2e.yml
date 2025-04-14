@@ -31,4 +31,4 @@ jobs:
           VITE_ENABLE_API_DELAY: "true"
         with:
           build: npm run build
-          start: npm start
+          start: npm vite preview

@@ -1,7 +1,7 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { toast } from 'react-toastify'
 
-import Seo from '@/components/seo'
+import { Seo } from '@/components/seo'
 import { cartItemsTableColumns } from '@/components/tables/columns/cart-items-columns'
 import { DataTable } from '@/components/tables/data-table'
 import { Button } from '@/components/ui/button'

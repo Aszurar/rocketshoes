@@ -23,6 +23,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      
+      - name: Configure Cypress
+        run: |
+          echo '{ "supportFile": "cypress/support/e2e.ts" }' > cypress-ci.json
+
 
       - name: Cypress run
         uses: cypress-io/github-action@v6

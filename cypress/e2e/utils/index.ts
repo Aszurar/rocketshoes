@@ -13,7 +13,11 @@ function formatPrice(priceText: string) {
   return priceFormatted
 }
 
-function formatTextToInt(text: string) {
+function formatTextToInt(text?: string) {
+
+  if (!text) {
+    return 0
+  }
   const formattedNumber = parseFloat(
     text.replace('R$', '').replace(',', '.').trim(),
   )

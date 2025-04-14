@@ -1,3 +1,6 @@
+/// <reference types="cypress" />
+/// <reference types="../../src/@types/commands.d.ts" />
+
 import { formatPrice, formatTextToInt } from "./utils"
 
 describe('Remove products', () => {
@@ -57,7 +60,7 @@ describe('Remove products', () => {
         
         // Obter o valor do input usando invoke('val')
         cy.wrap($card).find('[data-testid="input-amount"]').invoke('val').then(quantityText => {
-          const quantityNumber = formatTextToInt(quantityText.toString());
+          const quantityNumber = formatTextToInt(quantityText?.toString());
           expect(quantityNumber).to.be.a('number')
           
           // Adicionar ao total
@@ -95,7 +98,7 @@ describe('Remove products', () => {
         
         // Obter o valor do input usando invoke('val')
         cy.wrap($card).find('[data-testid="input-amount"]').invoke('val').then(quantityText => {
-          const quantityNumber = formatTextToInt(quantityText.toString());
+          const quantityNumber = formatTextToInt(quantityText?.toString());
           expect(quantityNumber).to.be.a('number')
           
           // Adicionar ao total

@@ -176,6 +176,7 @@ export function ShoesCard({
                     className="self-center"
                     onClick={handleRemoveProductOnCart}
                     aria-label="Remover do carrinho de compras"
+                    data-testid={`remove-item-card-${shoes.id}`}
                   >
                     <CircleMinus className="h-4 w-4" />
                   </Button>

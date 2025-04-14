@@ -3,7 +3,6 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" },
-    { "path": "./tsconfig.cypress.json" }
   ],
   "compilerOptions": {
     "baseUrl": ".",
@@ -11,5 +10,6 @@
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  }, 
+  "exclude": ["cypress/**/*.ts", "cypress/**/*.tsx", "node_modules"]
 }

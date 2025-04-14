@@ -12,7 +12,7 @@ interface SeoProps {
   type?: string
 }
 
-export default function Seo({
+export function Seo({
   title,
   description = 'Venha comprar seus tênis no melhor preço! Confira e veja seus produtos favoritos aqui, temos diversas opções para todos os gostos!',
   keywords = 'shoes, react, typescript, vite',

@@ -1,8 +1,11 @@
+/// <reference types="cypress" />
+/// <reference types="../../cypress/support/commands.d.ts" />
+
 import { formatPrice, formatTextToInt } from "../support/utils"
  
  describe('Add product', () => {
    beforeEach(() => {
-     cy.visit('http://localhost:5173/')
+     cy.visit('/')
    })
  
  

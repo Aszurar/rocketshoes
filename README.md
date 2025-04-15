@@ -24,6 +24,10 @@
   <div align="center">
     <h3><a href="https://rocketshoes-aszurar.vercel.app">RocketShoes</a></h3>
 
+
+https://github.com/user-attachments/assets/6be6142d-5320-400b-855b-1a9b92096823
+
+
   </div>
 
 <div align="center">

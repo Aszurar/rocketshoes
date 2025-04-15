@@ -34,6 +34,7 @@ jobs:
         env:
           VITE_API_URL: "/server.json"
           VITE_ENABLE_API_DELAY: "true"
+          CYPRESS_BASE_URL: http://localhost:4173
         with:
           build: npm run build
           start: npm run preview

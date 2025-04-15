@@ -107,7 +107,7 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
   2. Criação de **listagens virtuais** com **[TanStack - React Virtual](https://tanstack.com/virtual/latest)**
   3. Animações de **saída de layout** com **[framer-motion](https://motion.dev/)**
   4. Animações só com **[TailwindCSS](https://tailwindcss.com/)**
-  5. Configuração do **[Cypress](https://www.cypress.io/)** para projetos Vite.
+  5. Configuração do **[Cypress](https://www.cypress.io/)** para projetos **[Vite](https://vitejs.dev/)**
 
 ### Carrinho
 

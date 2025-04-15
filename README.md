@@ -12,7 +12,7 @@
   - Aplicamos um delay no axios para simular a latência de uma API real por meio da variável ambiente **```VITE_ENABLE_API_DELAY```**.
 
 <div align="center">
-    <img src="https://i.imgur.com/qjBRiVS.png" width="1000" alt="Banner">
+    <img src="https://i.imgur.com/yovUHTu.png" width="1000" alt="Banner">
 </div>
 
 ## RocketShoes
@@ -52,7 +52,7 @@
 
 <div align="center" >
 
-**[Vídeo no Youtube]()**
+**[Vídeo no Youtube](https://www.youtube.com/watch?v=psCze1_Xr1Q)**
 
 </div>
 
@@ -73,7 +73,7 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
 ### Tela inicial
 
 <div align="center" gap=12>
-      <img src="https://i.imgur.com/41hyuD3.png" width="400" alt="Tela Inicial no tema claro"><img src="https://i.imgur.com/cCm0T4o.png" width="400" alt="Tela Inicial no tema escuro">
+      <img src="https://i.imgur.com/xhupl3M.png" width="400" alt="Tela Inicial no tema claro"><img src="https://i.imgur.com/nKG5XdQ.png" width="400" alt="Tela Inicial no tema escuro">
 </div>
 
 ---
@@ -106,11 +106,11 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
 ### Carrinho
 
 <div align="center">
-  <img src="https://i.imgur.com/nevJUNG.png" width="400" alt="Carrinho cheio no modo claro">_<img src="https://i.imgur.com/oFewZBe.png" width="400" alt="Carrinho cheio no modo escuro">
+  <img src="https://i.imgur.com/iTdHrik.png" width="400" alt="Carrinho cheio no modo claro">_<img src="https://i.imgur.com/rFqQI5Q.png" width="400" alt="Carrinho cheio no modo escuro">
 </div>
 
 <div align="center">
-    <img src="https://i.imgur.com/Ke0GbAd.png" width="400" alt="Carrinho vazio no modo claro">_<img src="https://i.imgur.com/QGmbiNk.png" width="400" alt="Carrinho vazio no modo escuro">
+    <img src="https://i.imgur.com/2XfQCcr.png" width="400" alt="Carrinho vazio no modo claro">_<img src="https://i.imgur.com/tf5EW4A.png" width="400" alt="Carrinho vazio no modo escuro">
 </div>
 
 ---
@@ -120,9 +120,7 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
 - Não temos um figma do design em si, mas é do desafio Rocketshoes da trilha React da Rocketseat
 
 <div align="center">
-  <h3><a href="">RocketShoes</a></h3>
-
-  [![Design]()]()
+  <h3>RocketShoes</h3>
 </div>
 
 ---
@@ -134,11 +132,10 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
   3. Vite
   4. PNPM
 
-### Checkout
+### Tela de Finalização
 
 <div align="center" >
-      <img src="" width="400" alt="Tela de Checkout - tema claro">_<img src="" width="400" alt="Tela de Checkout - tema claro - preenchida">
-      <img src="" width="400" alt="Tela de Checkout - tema escuro">_<img src="" width="400" alt="Tela de Checkout - tema escuro">
+      <img src="https://i.imgur.com/YKLmLEb.png" width="400" alt="Tela de finalização - tema claro">_<img src="https://i.imgur.com/kj95g9S.png" width="400" alt="tema escuro">
 </div>
 
 ---
@@ -171,10 +168,14 @@ O projeto tem o intuito de simular um marketplace de calçados, onde podemos esc
   22. **[Vitest](https://vitest.dev/)**
   23. **[zod](https://zod.dev/)**
 
-### Tela de finalização
+### Responsividade
 
 <div align="center" >
-      <img src="https://i.imgur.com/YKLmLEb.png" width="400" alt="Tela de finalização - tema claro">_<img src="https://i.imgur.com/kj95g9S.png" width="400" alt="tema escuro">
+      <img src="https://i.imgur.com/Hjfbmqf.png" width="200" alt="Tela inicial responsiva - tema claro">_<img src="https://i.imgur.com/gVaz9Pr.png" width="200" alt="Tela inicial responsiva - tema escuro">_<img src="https://i.imgur.com/gYAz0Pq.png" width="200" alt="Pesquisa responsiva - tema claro">_<img src="https://i.imgur.com/OcGKf2j.png" width="200" alt="Pesquisa responsiva - tema escuro">
+</div>
+
+<div align="center" >
+      <img src="https://i.imgur.com/2K1hUz6.png" width="200" alt="Tela de carrinho responsiva - tema claro">_<img src="https://i.imgur.com/vydFSqM.png" width="200" alt="Tela  de carrinho responsiva - tema escuro">_<img src="https://i.imgur.com/efiFrJE.png" width="200" alt="Carrinho vazio responsiva - tema claro">_<img src="https://i.imgur.com/lbxO1Pa.png" width="200" alt="Carrinho vazio responsiva - tema escuro">
 </div>
 
 ---

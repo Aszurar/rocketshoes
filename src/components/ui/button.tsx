@@ -11,8 +11,10 @@ const buttonVariants = cva(
     'text-sm font-semibold',
     'inline-flex gap-2 items-center justify-center whitespace-nowrap rounded-md',
     'ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ',
-    'disabled:cursor-not-allowed disabled:opacity-50 ',
+    'disabled:cursor-not-allowed disabled:opacity-50 data-[loading=true]:cursor-wait data-[loading=true]:opacity-50',
     'animate-shine bg-[length:400%_100%] transition-colors',
+    'data-[loading=true]:hover:opacity-50 data-[loading=true]:active:opacity-50',
+    'data-[loading=true]:hover:brightness-100 data-[loading=true]:active:brightness-100',
   ),
   {
     variants: {
@@ -28,12 +30,12 @@ const buttonVariants = cva(
         warning:
           'bg-warning text-warning-foreground hover:brightness-110 disabled:hover:bg-warning active:brightness-90 data-[animated-shine=true]:bg-shine-animated-warning',
         outline:
-          'border border-input bg-background hover:bg-accent hover:text-accent-foreground disabled:hover:bg-background active:bg-accent/80 ',
+          'border border-input bg-background hover:bg-accent hover:text-accent-foreground active:bg-accent/80 disabled:hover:bg-background data-[loading=true]:hover:bg-background data-[loading=true]:active:bg-background',
         secondary:
-          'bg-secondary text-secondary-foreground hover:bg-secondary/60 disabled:hover:bg-secondary active:bg-secondary/90 data-[animated-shine=true]:bg-shine-animated-secondary',
+          'bg-secondary text-secondary-foreground hover:bg-secondary/60 disabled:hover:bg-secondary active:bg-secondary/90  data-[loading=true]:hover:bg-secondary data-[loading=true]:active:bg-secondary  data-[animated-shine=true]:bg-shine-animated-secondary ',
         ghost:
-          'hover:bg-accent hover:text-accent-foreground disabled:hover:bg-transparent active:bg-muted-foreground/10 ',
-        link: 'text-primary underline-offset-4 hover:underline disabled:hover:underline-none active:underline-offset-2',
+          'hover:bg-accent hover:text-accent-foreground disabled:hover:bg-transparent active:bg-muted-foreground/10 data-[loading=true]:hover:bg-transparent data-[loading=true]:active:bg-transparent',
+        link: 'text-primary underline-offset-4 hover:underline disabled:hover:underline-none active:underline-offset-2 data-[loading=true]:underline-offset-0',
       },
       size: {
         default: 'text-md h-10 px-4 py-2',
@@ -69,18 +71,29 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       isLoading = false,
       isAnimatedShine = false,
       children,
-      disabled,
+      onClick,
       ...props
     },
     ref,
   ) => {
     const content = isLoading ? <Spinner size={24} /> : children
     const Comp = asChild ? Slot : 'button'
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (isLoading) {
+        e.preventDefault()
+        return
+      }
+
+      onClick?.(e)
+    }
+
     return (
       <Comp
         ref={ref}
-        disabled={disabled ?? isLoading}
+        data-loading={isLoading}
         data-animated-shine={isAnimatedShine}
+        onClick={handleClick}
         className={cn(buttonVariants({ variant, size, className }))}
         {...props}
       >

@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { useCallback, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { EmptyList } from '@/components/empty-list'
+import { SearchForm } from '@/components/Form/SearchForm'
 import Seo from '@/components/seo'
 import { ShoesCardMemoized } from '@/components/shoes-card'
 import { ShoesCardListSkeleton } from '@/components/shoes-card-list-skeleton'
@@ -12,15 +14,20 @@ import { getShoes } from '@/services/requests/get-shoes'
 import { MESSAGES } from '@/utils/messages'
 
 export function Home() {
+  const [searchParams] = useSearchParams()
+  const titleParams = searchParams.get('title')
+
   const {
     data: shoes,
     isError,
     error,
     isPending: isShoesPending,
   } = useQuery({
-    queryFn: getShoes,
-    queryKey: ['shoes'],
+    queryFn: () => getShoes({ title: titleParams }),
+    queryKey: ['shoes', titleParams],
   })
+
+  const shoesQuantity = shoes?.length ?? 0
 
   useEffect(() => {
     if (isError) {
@@ -46,7 +53,11 @@ export function Home() {
         title="Produtos"
         description="Venha comprar seus tênis no melhor preço! Confira e veja seus produtos favoritos aqui, temos diversas opções para todos os gostos!"
       />
-      <main className="ml-auto mr-auto">
+      <main className="ml-auto mr-auto space-y-4">
+        <SearchForm
+          resultsQuantity={shoesQuantity}
+          isPending={isShoesPending}
+        />
         <VirtualizedGrid
           items={shoes}
           renderItem={renderShoesCard}

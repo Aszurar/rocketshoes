@@ -51,7 +51,7 @@ https://github.com/user-attachments/assets/6be6142d-5320-400b-855b-1a9b92096823
 ---
 
 <div align="center">
-    <img src="" width="500" alt="Gif mostrando o projeto">
+    <img src="https://i.imgur.com/Q06HxsN.gif" width="500" alt="Gif mostrando o projeto">
 </div>
 
 <div align="center" >

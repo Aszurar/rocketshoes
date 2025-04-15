@@ -64,7 +64,7 @@ export function Checkout() {
               size="lg"
               disabled={isEmptyCart}
               onClick={handleFinishOrder}
-              isAnimatedShine
+              isAnimatedShine={!isEmptyCart}
             >
               Finalizar pedido
             </Button>

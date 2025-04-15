@@ -153,7 +153,7 @@ export default function CartMenu() {
 
           <Button
             type="button"
-            isAnimatedShine
+            isAnimatedShine={!isEmptyCart}
             className="w-full"
             disabled={isEmptyCart}
             onClick={handleFinishPurchase}

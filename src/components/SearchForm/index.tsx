@@ -59,7 +59,7 @@ export function SearchForm({
       id="search-form"
       ref={parent}
       onSubmit={handleSearch}
-      className="flex items-center gap-4"
+      className="flex flex-col space-y-2 sm:flex-row sm:items-center sm:gap-4 sm:space-y-0"
     >
       <Input
         id="search"
@@ -70,20 +70,22 @@ export function SearchForm({
         onChange={handleSetSearchValue}
         className="max-w-md"
       />
-      <Button type="submit" form="search-form">
-        <Search className="h-5 w-5" />
-        Buscar
-      </Button>
-
-      {isDirty && (
-        <Button type="button" variant="outline" onClick={handleReset}>
-          <SearchX className="h-5 w-5" />
-          Limpar
+      <div className="flex items-center gap-2">
+        <Button type="submit" form="search-form">
+          <Search className="h-5 w-5" />
+          Buscar
         </Button>
-      )}
+
+        {isDirty && (
+          <Button type="button" variant="outline" onClick={handleReset}>
+            <SearchX className="h-5 w-5" />
+            Limpar
+          </Button>
+        )}
+      </div>
 
       {hasResults && (
-        <div className="ml-auto min-w-fit">
+        <div className="ml-auto min-w-fit text-center sm:text-start">
           <span className="font-semibold text-primary">
             {resultsBySearch.length} encontrado(s)
           </span>

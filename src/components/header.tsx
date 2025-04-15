@@ -14,7 +14,7 @@ export function Header() {
   const Logo = theme === THEME.Dark ? DarkLogoSVG : LogoSVG
 
   return (
-    <header className="flex items-center justify-between">
+    <header className="flex items-center justify-between gap-2">
       <h1>
         <Link to={ROUTES.home}>
           <img src={Logo} alt="." width={276} height={36} />

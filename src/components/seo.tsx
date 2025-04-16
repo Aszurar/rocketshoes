@@ -17,7 +17,7 @@ export function Seo({
   description = 'Venha comprar seus tênis no melhor preço! Confira e veja seus produtos favoritos aqui, temos diversas opções para todos os gostos!',
   keywords = 'shoes, react, typescript, vite',
   author = 'Lucas de Lima Martins de Souza',
-  image = 'https://i.imgur.com/OW72ewf.png',
+  image = 'https://i.imgur.com/yovUHTu.png',
   url = 'https://rocketshoes-sand.vercel.app/',
   twitterUsername = '@LmsSouza39',
   type = 'website',

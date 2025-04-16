@@ -24,6 +24,10 @@
   <div align="center">
     <h3><a href="https://rocketshoes-aszurar.vercel.app">RocketShoes</a></h3>
 
+
+https://github.com/user-attachments/assets/9a53a273-02e3-4d1f-936a-9f65df354a04
+
+
   </div>
 
 <div align="center">
@@ -47,12 +51,12 @@
 ---
 
 <div align="center">
-    <img src="" width="500" alt="Gif mostrando o projeto">
+    <img src="https://i.imgur.com/lLUiXH0.gif" width="500" alt="Gif mostrando o projeto">
 </div>
 
 <div align="center" >
 
-**[Vídeo no Youtube]()**
+**[Vídeo no Youtube](https://www.youtube.com/watch?v=gO87-UdwtRQ)**
 
 </div>
 
